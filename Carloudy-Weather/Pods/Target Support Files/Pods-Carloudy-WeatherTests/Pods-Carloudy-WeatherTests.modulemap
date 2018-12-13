@@ -1,0 +1,6 @@
+framework module Pods_Carloudy_WeatherTests {
+  umbrella header "Pods-Carloudy-WeatherTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

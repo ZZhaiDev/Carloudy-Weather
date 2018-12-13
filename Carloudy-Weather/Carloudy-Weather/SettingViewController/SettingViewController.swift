@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SettingViewController.swift
 //  Carloudy-Weather
 //
 //  Created by Zijia Zhai on 12/13/18.
@@ -8,13 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SettingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        view.backgroundColor = .white
     }
+    
 
+    
 
 }
-

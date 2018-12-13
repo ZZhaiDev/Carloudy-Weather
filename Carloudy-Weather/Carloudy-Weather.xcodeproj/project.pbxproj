@@ -8,11 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		A43F699D21C2E7A1005F8C1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F699C21C2E7A1005F8C1F /* AppDelegate.swift */; };
-		A43F699F21C2E7A1005F8C1F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F699E21C2E7A1005F8C1F /* ViewController.swift */; };
-		A43F69A221C2E7A1005F8C1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A43F69A021C2E7A1005F8C1F /* Main.storyboard */; };
+		A43F699F21C2E7A1005F8C1F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F699E21C2E7A1005F8C1F /* MainViewController.swift */; };
 		A43F69A421C2E7A4005F8C1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A43F69A321C2E7A4005F8C1F /* Assets.xcassets */; };
 		A43F69A721C2E7A4005F8C1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A43F69A521C2E7A4005F8C1F /* LaunchScreen.storyboard */; };
 		A43F69B221C2E7A4005F8C1F /* Carloudy_WeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F69B121C2E7A4005F8C1F /* Carloudy_WeatherTests.swift */; };
+		A43F69BE21C2F18B005F8C1F /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F69BD21C2F18B005F8C1F /* Extension.swift */; };
+		A43F69C121C2F367005F8C1F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F69C021C2F367005F8C1F /* SettingViewController.swift */; };
+		A43F69C421C2F41B005F8C1F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F69C321C2F41B005F8C1F /* SearchViewController.swift */; };
+		A43F69C821C2F856005F8C1F /* SearchFirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F69C721C2F856005F8C1F /* SearchFirstView.swift */; };
+		A43F69CA21C2F8C7005F8C1F /* Commons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F69C921C2F8C7005F8C1F /* Commons.swift */; };
+		A43F69CE21C2FE53005F8C1F /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F69CD21C2FE53005F8C1F /* NetworkTools.swift */; };
+		A43F69D021C301E1005F8C1F /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F69CF21C301E1005F8C1F /* SearchViewModel.swift */; };
+		A43F69D221C30204005F8C1F /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F69D121C30204005F8C1F /* SearchModel.swift */; };
+		DF855B732618410A2E63801D /* Pods_Carloudy_WeatherTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D0B573E78F15812736D4F9 /* Pods_Carloudy_WeatherTests.framework */; };
+		FDF5CC4BA13925C7C1A78153 /* Pods_Carloudy_Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 788147FB990BCF776A4A069A /* Pods_Carloudy_Weather.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,16 +35,29 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00D0B573E78F15812736D4F9 /* Pods_Carloudy_WeatherTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carloudy_WeatherTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4107A6594C144F16C5C81E7E /* Pods-Carloudy-Weather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carloudy-Weather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Carloudy-Weather/Pods-Carloudy-Weather.debug.xcconfig"; sourceTree = "<group>"; };
+		6D89F284ACA709506FBDFA38 /* Pods-Carloudy-WeatherTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carloudy-WeatherTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carloudy-WeatherTests/Pods-Carloudy-WeatherTests.release.xcconfig"; sourceTree = "<group>"; };
+		788147FB990BCF776A4A069A /* Pods_Carloudy_Weather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carloudy_Weather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A43F699921C2E7A1005F8C1F /* Carloudy-Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Carloudy-Weather.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A43F699C21C2E7A1005F8C1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A43F699E21C2E7A1005F8C1F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A43F69A121C2E7A1005F8C1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A43F699E21C2E7A1005F8C1F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A43F69A321C2E7A4005F8C1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A43F69A621C2E7A4005F8C1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A43F69A821C2E7A4005F8C1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A43F69AD21C2E7A4005F8C1F /* Carloudy-WeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Carloudy-WeatherTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A43F69B121C2E7A4005F8C1F /* Carloudy_WeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carloudy_WeatherTests.swift; sourceTree = "<group>"; };
 		A43F69B321C2E7A4005F8C1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A43F69BD21C2F18B005F8C1F /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		A43F69C021C2F367005F8C1F /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		A43F69C321C2F41B005F8C1F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		A43F69C721C2F856005F8C1F /* SearchFirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFirstView.swift; sourceTree = "<group>"; };
+		A43F69C921C2F8C7005F8C1F /* Commons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commons.swift; sourceTree = "<group>"; };
+		A43F69CD21C2FE53005F8C1F /* NetworkTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
+		A43F69CF21C301E1005F8C1F /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		A43F69D121C30204005F8C1F /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
+		B01233311F248FE756306118 /* Pods-Carloudy-WeatherTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carloudy-WeatherTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Carloudy-WeatherTests/Pods-Carloudy-WeatherTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B574C23964FB71F98B3E4FF6 /* Pods-Carloudy-Weather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carloudy-Weather.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carloudy-Weather/Pods-Carloudy-Weather.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDF5CC4BA13925C7C1A78153 /* Pods_Carloudy_Weather.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,18 +73,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF855B732618410A2E63801D /* Pods_Carloudy_WeatherTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4602C311201AAC666F6DE357 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				788147FB990BCF776A4A069A /* Pods_Carloudy_Weather.framework */,
+				00D0B573E78F15812736D4F9 /* Pods_Carloudy_WeatherTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		781111FDA1E44F4E88F844B6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4107A6594C144F16C5C81E7E /* Pods-Carloudy-Weather.debug.xcconfig */,
+				B574C23964FB71F98B3E4FF6 /* Pods-Carloudy-Weather.release.xcconfig */,
+				B01233311F248FE756306118 /* Pods-Carloudy-WeatherTests.debug.xcconfig */,
+				6D89F284ACA709506FBDFA38 /* Pods-Carloudy-WeatherTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A43F699021C2E7A1005F8C1F = {
 			isa = PBXGroup;
 			children = (
 				A43F699B21C2E7A1005F8C1F /* Carloudy-Weather */,
 				A43F69B021C2E7A4005F8C1F /* Carloudy-WeatherTests */,
 				A43F699A21C2E7A1005F8C1F /* Products */,
+				781111FDA1E44F4E88F844B6 /* Pods */,
+				4602C311201AAC666F6DE357 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,9 +123,11 @@
 		A43F699B21C2E7A1005F8C1F /* Carloudy-Weather */ = {
 			isa = PBXGroup;
 			children = (
+				A43F69C221C2F406005F8C1F /* SearchViewController */,
+				A43F69BF21C2F33C005F8C1F /* SettingViewController */,
+				A43F69BC21C2F15C005F8C1F /* Ultis */,
 				A43F699C21C2E7A1005F8C1F /* AppDelegate.swift */,
-				A43F699E21C2E7A1005F8C1F /* ViewController.swift */,
-				A43F69A021C2E7A1005F8C1F /* Main.storyboard */,
+				A43F699E21C2E7A1005F8C1F /* MainViewController.swift */,
 				A43F69A321C2E7A4005F8C1F /* Assets.xcassets */,
 				A43F69A521C2E7A4005F8C1F /* LaunchScreen.storyboard */,
 				A43F69A821C2E7A4005F8C1F /* Info.plist */,
@@ -96,6 +144,67 @@
 			path = "Carloudy-WeatherTests";
 			sourceTree = "<group>";
 		};
+		A43F69BC21C2F15C005F8C1F /* Ultis */ = {
+			isa = PBXGroup;
+			children = (
+				A43F69BD21C2F18B005F8C1F /* Extension.swift */,
+				A43F69C921C2F8C7005F8C1F /* Commons.swift */,
+				A43F69CD21C2FE53005F8C1F /* NetworkTools.swift */,
+			);
+			path = Ultis;
+			sourceTree = "<group>";
+		};
+		A43F69BF21C2F33C005F8C1F /* SettingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A43F69C021C2F367005F8C1F /* SettingViewController.swift */,
+			);
+			path = SettingViewController;
+			sourceTree = "<group>";
+		};
+		A43F69C221C2F406005F8C1F /* SearchViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A43F69CC21C2FCA8005F8C1F /* ViewModel */,
+				A43F69CB21C2FC98005F8C1F /* Model */,
+				A43F69C621C2F837005F8C1F /* View */,
+				A43F69C521C2F822005F8C1F /* ViewController */,
+			);
+			path = SearchViewController;
+			sourceTree = "<group>";
+		};
+		A43F69C521C2F822005F8C1F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A43F69C321C2F41B005F8C1F /* SearchViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A43F69C621C2F837005F8C1F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A43F69C721C2F856005F8C1F /* SearchFirstView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A43F69CB21C2FC98005F8C1F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A43F69D121C30204005F8C1F /* SearchModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A43F69CC21C2FCA8005F8C1F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A43F69CF21C301E1005F8C1F /* SearchViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +212,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A43F69B621C2E7A4005F8C1F /* Build configuration list for PBXNativeTarget "Carloudy-Weather" */;
 			buildPhases = (
+				C9B1DA84A484758E97F0A999 /* [CP] Check Pods Manifest.lock */,
 				A43F699521C2E7A1005F8C1F /* Sources */,
 				A43F699621C2E7A1005F8C1F /* Frameworks */,
 				A43F699721C2E7A1005F8C1F /* Resources */,
+				165C3BE4F50FA4AB1986BC26 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -120,6 +231,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A43F69B921C2E7A4005F8C1F /* Build configuration list for PBXNativeTarget "Carloudy-WeatherTests" */;
 			buildPhases = (
+				529E60F57BEF1C85C9A52FD8 /* [CP] Check Pods Manifest.lock */,
 				A43F69A921C2E7A4005F8C1F /* Sources */,
 				A43F69AA21C2E7A4005F8C1F /* Frameworks */,
 				A43F69AB21C2E7A4005F8C1F /* Resources */,
@@ -179,7 +291,6 @@
 			files = (
 				A43F69A721C2E7A4005F8C1F /* LaunchScreen.storyboard in Resources */,
 				A43F69A421C2E7A4005F8C1F /* Assets.xcassets in Resources */,
-				A43F69A221C2E7A1005F8C1F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,13 +303,82 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		165C3BE4F50FA4AB1986BC26 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Carloudy-Weather/Pods-Carloudy-Weather-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/CarloudyiOS/CarloudyiOS.framework",
+				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CarloudyiOS.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Carloudy-Weather/Pods-Carloudy-Weather-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		529E60F57BEF1C85C9A52FD8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Carloudy-WeatherTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C9B1DA84A484758E97F0A999 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Carloudy-Weather-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A43F699521C2E7A1005F8C1F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A43F699F21C2E7A1005F8C1F /* ViewController.swift in Sources */,
+				A43F69CE21C2FE53005F8C1F /* NetworkTools.swift in Sources */,
+				A43F69CA21C2F8C7005F8C1F /* Commons.swift in Sources */,
+				A43F69C821C2F856005F8C1F /* SearchFirstView.swift in Sources */,
+				A43F69D221C30204005F8C1F /* SearchModel.swift in Sources */,
+				A43F69C421C2F41B005F8C1F /* SearchViewController.swift in Sources */,
+				A43F69BE21C2F18B005F8C1F /* Extension.swift in Sources */,
+				A43F699F21C2E7A1005F8C1F /* MainViewController.swift in Sources */,
+				A43F69D021C301E1005F8C1F /* SearchViewModel.swift in Sources */,
 				A43F699D21C2E7A1005F8C1F /* AppDelegate.swift in Sources */,
+				A43F69C121C2F367005F8C1F /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,14 +401,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A43F69A021C2E7A1005F8C1F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A43F69A121C2E7A1005F8C1F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A43F69A521C2E7A4005F8C1F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -358,11 +530,13 @@
 		};
 		A43F69B721C2E7A4005F8C1F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4107A6594C144F16C5C81E7E /* Pods-Carloudy-Weather.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TJEC8LNQP8;
 				INFOPLIST_FILE = "Carloudy-Weather/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -376,11 +550,13 @@
 		};
 		A43F69B821C2E7A4005F8C1F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B574C23964FB71F98B3E4FF6 /* Pods-Carloudy-Weather.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TJEC8LNQP8;
 				INFOPLIST_FILE = "Carloudy-Weather/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -394,6 +570,7 @@
 		};
 		A43F69BA21C2E7A4005F8C1F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B01233311F248FE756306118 /* Pods-Carloudy-WeatherTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -415,6 +592,7 @@
 		};
 		A43F69BB21C2E7A4005F8C1F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D89F284ACA709506FBDFA38 /* Pods-Carloudy-WeatherTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
