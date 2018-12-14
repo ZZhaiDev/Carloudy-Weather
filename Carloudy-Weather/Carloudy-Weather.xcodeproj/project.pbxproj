@@ -25,6 +25,13 @@
 		A43F69CE21C2FE53005F8C1F /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F69CD21C2FE53005F8C1F /* NetworkTools.swift */; };
 		A43F69D021C301E1005F8C1F /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F69CF21C301E1005F8C1F /* SearchViewModel.swift */; };
 		A43F69D221C30204005F8C1F /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F69D121C30204005F8C1F /* SearchModel.swift */; };
+		A43F69D521C419B5005F8C1F /* PageTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F69D421C419B5005F8C1F /* PageTitleView.swift */; };
+		A43F69D721C4226B005F8C1F /* MainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F69D621C4226B005F8C1F /* MainContentView.swift */; };
+		A43F69D921C43E99005F8C1F /* MainContentViewCellHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F69D821C43E99005F8C1F /* MainContentViewCellHeader.swift */; };
+		A43F69DB21C446FA005F8C1F /* MainContentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F69DA21C446FA005F8C1F /* MainContentViewCell.swift */; };
+		A43F69E021C455E1005F8C1F /* MainContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F69DE21C455E1005F8C1F /* MainContentTableViewCell.swift */; };
+		A43F69E121C455E1005F8C1F /* MainContentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43F69DF21C455E1005F8C1F /* MainContentTableViewCell.xib */; };
+		A43F69E321C45885005F8C1F /* MainContentTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F69E221C45885005F8C1F /* MainContentTableView.swift */; };
 		DF855B732618410A2E63801D /* Pods_Carloudy_WeatherTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D0B573E78F15812736D4F9 /* Pods_Carloudy_WeatherTests.framework */; };
 		FDF5CC4BA13925C7C1A78153 /* Pods_Carloudy_Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 788147FB990BCF776A4A069A /* Pods_Carloudy_Weather.framework */; };
 /* End PBXBuildFile section */
@@ -66,6 +73,13 @@
 		A43F69CD21C2FE53005F8C1F /* NetworkTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
 		A43F69CF21C301E1005F8C1F /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		A43F69D121C30204005F8C1F /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
+		A43F69D421C419B5005F8C1F /* PageTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageTitleView.swift; sourceTree = "<group>"; };
+		A43F69D621C4226B005F8C1F /* MainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentView.swift; sourceTree = "<group>"; };
+		A43F69D821C43E99005F8C1F /* MainContentViewCellHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentViewCellHeader.swift; sourceTree = "<group>"; };
+		A43F69DA21C446FA005F8C1F /* MainContentViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentViewCell.swift; sourceTree = "<group>"; };
+		A43F69DE21C455E1005F8C1F /* MainContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentTableViewCell.swift; sourceTree = "<group>"; };
+		A43F69DF21C455E1005F8C1F /* MainContentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainContentTableViewCell.xib; sourceTree = "<group>"; };
+		A43F69E221C45885005F8C1F /* MainContentTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentTableView.swift; sourceTree = "<group>"; };
 		B01233311F248FE756306118 /* Pods-Carloudy-WeatherTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carloudy-WeatherTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Carloudy-WeatherTests/Pods-Carloudy-WeatherTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B574C23964FB71F98B3E4FF6 /* Pods-Carloudy-Weather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carloudy-Weather.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carloudy-Weather/Pods-Carloudy-Weather.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,12 +157,12 @@
 		A43F699B21C2E7A1005F8C1F /* Carloudy-Weather */ = {
 			isa = PBXGroup;
 			children = (
+				A43F69D321C419A1005F8C1F /* MainViewController */,
 				3814F39A21C3593A00CCE1EE /* ParallaxHeader */,
 				A43F69C221C2F406005F8C1F /* SearchViewController */,
 				A43F69BF21C2F33C005F8C1F /* SettingViewController */,
 				A43F69BC21C2F15C005F8C1F /* Ultis */,
 				A43F699C21C2E7A1005F8C1F /* AppDelegate.swift */,
-				A43F699E21C2E7A1005F8C1F /* MainViewController.swift */,
 				A43F69A321C2E7A4005F8C1F /* Assets.xcassets */,
 				A43F69A521C2E7A4005F8C1F /* LaunchScreen.storyboard */,
 				A43F69A821C2E7A4005F8C1F /* Info.plist */,
@@ -226,6 +240,21 @@
 				A43F69CF21C301E1005F8C1F /* SearchViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A43F69D321C419A1005F8C1F /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A43F699E21C2E7A1005F8C1F /* MainViewController.swift */,
+				A43F69D421C419B5005F8C1F /* PageTitleView.swift */,
+				A43F69D621C4226B005F8C1F /* MainContentView.swift */,
+				A43F69D821C43E99005F8C1F /* MainContentViewCellHeader.swift */,
+				A43F69DA21C446FA005F8C1F /* MainContentViewCell.swift */,
+				A43F69E221C45885005F8C1F /* MainContentTableView.swift */,
+				A43F69DE21C455E1005F8C1F /* MainContentTableViewCell.swift */,
+				A43F69DF21C455E1005F8C1F /* MainContentTableViewCell.xib */,
+			);
+			path = MainViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,6 +343,7 @@
 			files = (
 				A43F69A721C2E7A4005F8C1F /* LaunchScreen.storyboard in Resources */,
 				A43F69A421C2E7A4005F8C1F /* Assets.xcassets in Resources */,
+				A43F69E121C455E1005F8C1F /* MainContentTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,20 +422,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A43F69D921C43E99005F8C1F /* MainContentViewCellHeader.swift in Sources */,
 				A43F69CE21C2FE53005F8C1F /* NetworkTools.swift in Sources */,
 				A43F69CA21C2F8C7005F8C1F /* Commons.swift in Sources */,
 				A43F69C821C2F856005F8C1F /* SearchFirstViewCell.swift in Sources */,
+				A43F69DB21C446FA005F8C1F /* MainContentViewCell.swift in Sources */,
 				3814F3A021C3593A00CCE1EE /* UIScrollView+ParallaxHeader.swift in Sources */,
+				A43F69E321C45885005F8C1F /* MainContentTableView.swift in Sources */,
 				A43F69D221C30204005F8C1F /* SearchModel.swift in Sources */,
 				A43F69C421C2F41B005F8C1F /* SearchViewController.swift in Sources */,
+				A43F69E021C455E1005F8C1F /* MainContentTableViewCell.swift in Sources */,
 				A43F69BE21C2F18B005F8C1F /* Extension.swift in Sources */,
 				A43F699F21C2E7A1005F8C1F /* MainViewController.swift in Sources */,
+				A43F69D521C419B5005F8C1F /* PageTitleView.swift in Sources */,
 				A43F69D021C301E1005F8C1F /* SearchViewModel.swift in Sources */,
 				3814F39921C358A000CCE1EE /* MineHead.swift in Sources */,
 				3814F39E21C3593A00CCE1EE /* ParallaxHeader.swift in Sources */,
 				A43F699D21C2E7A1005F8C1F /* AppDelegate.swift in Sources */,
 				A43F69C121C2F367005F8C1F /* SettingViewController.swift in Sources */,
 				3814F39F21C3593A00CCE1EE /* ParallaxHeaderMode.swift in Sources */,
+				A43F69D721C4226B005F8C1F /* MainContentView.swift in Sources */,
 				3814F39721C34A1400CCE1EE /* SearchSecondViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

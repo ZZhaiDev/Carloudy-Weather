@@ -13,12 +13,11 @@ class SettingViewController: UIViewController {
     
     private lazy var myArray: Array = {
         return [[["icon":"mine_feedBack", "title": "C/F"],
-                 ["icon":"mine_feedBack", "title": "充值"]],
+                 ["icon":"mine_setting", "title": "Setting"]],
                 
                 [["icon":"mine_feedBack", "title": "帮助中心"],
                  ["icon":"mine_mail", "title": "我要反馈"],
-                 ["icon":"mine_judge", "title": "给我们评分"],
-                 ["icon":"mine_setting", "title": "设置"]]]
+                 ["icon":"mine_judge", "title": "给我们评分"]]]
     }()
     
     private lazy var head: MineHead = {
@@ -40,6 +39,16 @@ class SettingViewController: UIViewController {
         setupUI()
         view.backgroundColor = .white
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        self.navigationController?.hidesBarsOnSwipe = true;
+//    }
+//
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        self.navigationController?.hidesBarsOnSwipe = false;
+//    }
 }
 
 
@@ -53,6 +62,7 @@ extension SettingViewController{
     fileprivate func setupUI(){
         
         view.addSubview(tableView)
+        navigationItem.title = "Setting"
 //        var navigationBarY: CGFloat = 88
 //        if #available(iOS 11.0, *) {
 //            navigationBarY = self.view.safeAreaInsets.top
@@ -66,9 +76,9 @@ extension SettingViewController{
         tableView.parallaxHeader.view = head
         tableView.parallaxHeader.height = 200
         tableView.parallaxHeader.minimumHeight = 0
-        tableView.parallaxHeader.mode = .fill
+        tableView.parallaxHeader.mode = .topFill
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "< goback", style: .plain, target: self, action: #selector(goback))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "< back", style: .plain, target: self, action: #selector(goback))
     }
     @objc fileprivate func goback(){
         self.dismiss(animated: true, completion: nil)
@@ -98,31 +108,31 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let scrollOffset = scrollView.contentOffset.y;
-        ZJPrint(scrollOffset)
-        if (scrollOffset < -244)
-        {
-            self.navigationController?.hidesBarsOnSwipe = false;
-            self.navigationController?.setNavigationBarHidden(false, animated: true)
-        }
-        else
-        {
-            self.navigationController?.hidesBarsOnSwipe = true;
-            
-        }
-    }
-    
-    
-    //always called after the user lifts their finger
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        self.navigationController?.hidesBarsOnSwipe = false;
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-    }
-    
-    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        
-    }
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        let scrollOffset = scrollView.contentOffset.y;
+////        ZJPrint(scrollOffset)
+//        if (scrollOffset < -244)
+//        {
+//            self.navigationController?.hidesBarsOnSwipe = false;
+//            self.navigationController?.setNavigationBarHidden(false, animated: true)
+//        }
+//        else
+//        {
+//            self.navigationController?.hidesBarsOnSwipe = true;
+//
+//        }
+//    }
+//
+//
+//    //always called after the user lifts their finger
+//    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+//        self.navigationController?.hidesBarsOnSwipe = false;
+//        self.navigationController?.setNavigationBarHidden(false, animated: true)
+//    }
+//
+//    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+//
+//    }
     
     
     

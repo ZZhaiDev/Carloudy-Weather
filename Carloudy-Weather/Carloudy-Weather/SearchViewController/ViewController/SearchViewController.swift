@@ -22,7 +22,7 @@ class SearchViewController: UIViewController {
         
         navigationItem.searchController = searchController
         searchController.searchBar.delegate = self
-        searchController.searchBar.scopeButtonTitles = ["French", "English"]
+//        searchController.searchBar.scopeButtonTitles = ["French", "English"]
         navigationItem.hidesSearchBarWhenScrolling = false
         searchController.obscuresBackgroundDuringPresentation = false
         return searchController
@@ -42,6 +42,16 @@ class SearchViewController: UIViewController {
 //        sv.isHidden = true
 //        return sv
 //    }()
+    
+        override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            self.navigationController?.hidesBarsOnSwipe = true;
+        }
+    
+        override func viewWillDisappear(_ animated: Bool) {
+            super.viewWillDisappear(animated)
+            self.navigationController?.hidesBarsOnSwipe = false;
+        }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,10 +71,16 @@ class SearchViewController: UIViewController {
 extension SearchViewController{
     fileprivate func setupUI(){
         view.addSubview(tablView)
-        tablView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: navigationController?.navigationBar.bounds.maxY ?? 88, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+        tablView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
         
 //        view.addSubview(searchFirstView)
 //        searchFirstView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: navigationController?.navigationBar.bounds.maxY ?? 88, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "< back", style: .plain, target: self, action: #selector(goback))
+    }
+    
+    @objc fileprivate func goback(){
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
