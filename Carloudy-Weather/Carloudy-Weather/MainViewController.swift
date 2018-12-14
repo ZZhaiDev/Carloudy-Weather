@@ -30,7 +30,10 @@ extension MainViewController{
         navigationController?.pushViewController(SearchViewController(), animated: true)
     }
     @objc fileprivate func settingBarButtonItemClicked(){
-        navigationController?.pushViewController(SettingViewController(), animated: true)
+//        navigationController?.pushViewController(SettingViewController(), animated: true)
+        let setVC = SettingViewController()
+        let nvc = UINavigationController(rootViewController: setVC)
+        self.present(nvc, animated: true, completion: nil)
     }
 }
 

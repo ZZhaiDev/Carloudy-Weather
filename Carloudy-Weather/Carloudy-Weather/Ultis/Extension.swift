@@ -23,6 +23,18 @@ extension UIColor{
 }
 
 
+extension UIColor {
+    class var background: UIColor {
+        //        return UIColor(r: 242, g: 242, b: 242)
+        return UIColor(displayP3Red: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
+    }
+    
+    class var theme: UIColor {
+        return UIColor(displayP3Red: 29/255, green: 221/255, blue: 43/255, alpha: 1.0)
+    }
+}
+
+
 extension UIView {
     func anchor(top: NSLayoutYAxisAnchor?, left: NSLayoutXAxisAnchor?, bottom: NSLayoutYAxisAnchor?, right: NSLayoutXAxisAnchor?,  paddingTop: CGFloat, paddingLeft: CGFloat, paddingBottom: CGFloat, paddingRight: CGFloat, width: CGFloat, height: CGFloat) {
         

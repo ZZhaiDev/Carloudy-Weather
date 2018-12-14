@@ -8,11 +8,13 @@
 
 import UIKit
 
+fileprivate let searchcellId = "searchcellId"
 fileprivate let cellId = "cellId"
 
 class SearchViewController: UIViewController {
     
     fileprivate lazy var searchViewModel = SearchViewModel()
+    var firstView = true
     
     lazy var searchController : UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
@@ -30,15 +32,16 @@ class SearchViewController: UIViewController {
        let tb = UITableView()
         tb.delegate = self
         tb.dataSource = self
-        tb.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+        tb.rowHeight = zjSeachFirstViewCellHeight
+        
         return tb
     }()
     
-    lazy var searchFirstView: SearchFirstView = {
-        let sv = SearchFirstView()
-        sv.isHidden = true
-        return sv
-    }()
+//    lazy var searchFirstView: SearchFirstView = {
+//        let sv = SearchFirstView()
+//        sv.isHidden = true
+//        return sv
+//    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +49,10 @@ class SearchViewController: UIViewController {
         setupUI()
         view.backgroundColor = .white
         searchController.searchBar.placeholder = "Add Locations"
-//        tablView.reloadData()
+        
+        tablView.register(SearchSecondViewCell.self, forCellReuseIdentifier: cellId)
+        tablView.register(SearchFirstViewCell.self, forCellReuseIdentifier: searchcellId)
+        tablView.reloadData()
     }
 
 }
@@ -57,44 +63,80 @@ extension SearchViewController{
         view.addSubview(tablView)
         tablView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: navigationController?.navigationBar.bounds.maxY ?? 88, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
         
-        view.addSubview(searchFirstView)
-        searchFirstView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: navigationController?.navigationBar.bounds.maxY ?? 88, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+//        view.addSubview(searchFirstView)
+//        searchFirstView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: navigationController?.navigationBar.bounds.maxY ?? 88, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
     }
 }
 
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource{
+    func numberOfSections(in tableView: UITableView) -> Int {
+        if firstView{
+            return 2
+        }
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if firstView{
+            if section == 0{
+                return 1
+            }
+            return 9
+        }
         return searchViewModel.searchModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tablView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
-        cell.accessoryType = .disclosureIndicator
-        cell.selectionStyle = .default
-        
-        let data = searchViewModel.searchModels[indexPath.item]
-        cell.textLabel?.text = data.location
-        return cell
+        if firstView{
+            let cell = tablView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! SearchSecondViewCell
+            cell.textLabel?.text = "123"
+            return cell
+        }else{
+            let cell = tablView.dequeueReusableCell(withIdentifier: searchcellId, for: indexPath) as! SearchFirstViewCell
+            cell.accessoryType = .disclosureIndicator
+            cell.selectionStyle = .default
+            
+            let data = searchViewModel.searchModels[indexPath.item]
+            cell.textLabel?.text = data.location
+            return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if firstView{
+            if section == 0{
+                return "Current Location"
+            }
+            return "My Locations"
+        }
+        return ""
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if firstView{
+            
+        }else{
+            ZJPrint(searchViewModel.searchModels[indexPath.item].location)
+        }
         
-        ZJPrint(searchViewModel.searchModels[indexPath.item].location)
     }
 }
 
 extension SearchViewController: UISearchBarDelegate, UISearchResultsUpdating{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchViewModel.searchModels.removeAll()
-        self.loadData(str: searchText)
+        ZJPrint(searchText.count)
         if searchText.count == 0{
-            tablView.isHidden = true
-            searchFirstView.isHidden = false
+            firstView = true
+            tablView.rowHeight = 160
+            tablView.reloadData()
         }else{
-            tablView.isHidden = false
-            searchFirstView.isHidden = true
+            firstView = false
+            tablView.rowHeight = 80
+            self.loadData(str: searchText.replacingOccurrences(of: " ", with: ""))
         }
+        
     }
     
     

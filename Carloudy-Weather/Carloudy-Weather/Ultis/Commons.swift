@@ -6,7 +6,12 @@
 //  Copyright © 2018 cognitiveAI. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 
 let googleSerivePrivateAPI = "AIzaSyB-v-ac0d_I5do478BBROehAvLbltTpsGw"
+
+let zjScreenWidth: CGFloat = UIScreen.main.bounds.width
+let zjScreenHeight: CGFloat = UIScreen.main.bounds.height
+let zjSeachFirstViewCellHeight: CGFloat = 160
+

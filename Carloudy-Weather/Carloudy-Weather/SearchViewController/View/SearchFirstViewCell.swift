@@ -9,10 +9,9 @@
 
 import  UIKit
 
-class SearchFirstView: UIView {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
+class SearchFirstViewCell: UITableViewCell {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .red
     }
     
