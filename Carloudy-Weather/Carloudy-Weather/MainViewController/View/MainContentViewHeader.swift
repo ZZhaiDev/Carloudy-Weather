@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainContentViewCellHeader: UICollectionReusableView {
+class MainContentViewHeader: UIView {
     lazy var timeLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
@@ -34,12 +34,23 @@ class MainContentViewCellHeader: UICollectionReusableView {
         return iv
     }()
     
+    let tempLabel: UILabel = {
+       let label = UILabel()
+        label.text = "45°"
+        label.textColor = .white
+        label.font = UIFont.systemFont(ofSize: 55)
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
     }
     
     func setupUI(){
+        let leftPadding: CGFloat = zjScreenWidth/6
+        let imageWidth: CGFloat = 80
+        
         addSubview(timeLabel)
         timeLabel.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 20, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 30)
         
@@ -47,7 +58,10 @@ class MainContentViewCellHeader: UICollectionReusableView {
         locationLabel.anchor(top: timeLabel.topAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 20, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 30)
         
         addSubview(imageView)
-        imageView.anchor(top: locationLabel.bottomAnchor, left: self.leftAnchor, bottom: nil, right: nil, paddingTop: 30, paddingLeft: 30, paddingBottom: 0, paddingRight: 0, width: 80, height: 80)
+        imageView.anchor(top: locationLabel.bottomAnchor, left: self.leftAnchor, bottom: nil, right: nil, paddingTop: 30, paddingLeft: leftPadding, paddingBottom: 0, paddingRight: 0, width: imageWidth, height: imageWidth)
+        
+        addSubview(tempLabel)
+        tempLabel.anchor(top: imageView.topAnchor, left: self.leftAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: zjScreenWidth - leftPadding - imageWidth, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
     }
     
     required init?(coder aDecoder: NSCoder) {

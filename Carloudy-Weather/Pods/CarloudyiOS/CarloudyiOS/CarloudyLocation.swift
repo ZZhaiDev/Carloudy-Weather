@@ -48,6 +48,8 @@ open class CarloudyLocation: NSObject, CLLocationManagerDelegate{
         }
         if sendAddress && sendAddressDelayTimesIndex == 0{
             reverseCoordinateToAddress(latitude: (locations.last?.coordinate.latitude)!, longtitude: (locations.last?.coordinate.longitude)!)
+            print((locations.last?.coordinate.latitude)!)
+            print((locations.last?.coordinate.longitude)!)
         }
         sendAddressDelayTimesIndex += 1
         if sendAddressDelayTimesIndex == sendAddressDelayTimes{
@@ -89,23 +91,23 @@ open class CarloudyLocation: NSObject, CLLocationManagerDelegate{
             }
             // Street address
             if let street = placeMark.thoroughfare {
-                print(street)
+//                print(street)
                 streetName = street
             }
             // City
             if let city = placeMark.subAdministrativeArea {
-                print(city)
+//                print(city)
                 cityName = city
             }
             
             // Zip code
             if let zip = placeMark.postalCode {
-                print(zip)
+//                print(zip)
                 zipName = zip
             }
             // Country
             if let country = placeMark.country {
-                print(country)
+//                print(country)
                 countryName = country
             }
             self.delegate?.carloudyLocation(locationName: subThoroughfare, street: streetName, city: cityName, zipCode: zipName, country: countryName)
