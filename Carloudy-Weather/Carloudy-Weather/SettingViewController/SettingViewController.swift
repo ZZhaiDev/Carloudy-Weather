@@ -55,9 +55,7 @@ class SettingViewController: UIViewController {
 
 extension SettingViewController{
     
-    override var prefersStatusBarHidden: Bool{
-        return true
-    }
+    
     
     fileprivate func setupUI(){
         
@@ -78,7 +76,7 @@ extension SettingViewController{
         tableView.parallaxHeader.minimumHeight = 0
         tableView.parallaxHeader.mode = .topFill
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "< back", style: .plain, target: self, action: #selector(goback))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Exit", style: .plain, target: self, action: #selector(goback))
     }
     @objc fileprivate func goback(){
         self.dismiss(animated: true, completion: nil)
@@ -105,6 +103,14 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource{
         cell.imageView?.image = UIImage(named: dict["icon"] ?? "")
         cell.textLabel?.text = dict["title"]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       ZJPrint(indexPath.item)
+        ZJPrint(indexPath.row)
+        if indexPath == [0, 0]{
+            navigationController?.pushViewController(UnitViewController(), animated: true)
+        }
     }
     
     

@@ -22,6 +22,7 @@ class NetworkTools {
         
         // 2.发送网络请求
         ZJPrint(URLString)
+        
         AF.request(URLString, method: method, parameters: parameters).responseJSON { (response) in
             
             // 3.获取结果

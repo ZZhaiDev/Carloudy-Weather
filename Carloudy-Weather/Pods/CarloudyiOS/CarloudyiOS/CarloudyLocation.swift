@@ -95,7 +95,7 @@ open class CarloudyLocation: NSObject, CLLocationManagerDelegate{
                 streetName = street
             }
             // City
-            if let city = placeMark.subAdministrativeArea {
+            if let city = placeMark.locality {
 //                print(city)
                 cityName = city
             }

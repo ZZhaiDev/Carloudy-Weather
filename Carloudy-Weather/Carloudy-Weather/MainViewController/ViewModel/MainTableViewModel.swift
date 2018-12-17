@@ -9,6 +9,8 @@
 import  UIKit
 class MainTableViewModel{
     lazy var mainTableViewModelForecastday: [Forecastday] = [Forecastday]()
+    var mainContentViewHeaderMode_current: Current?
+    var mainContentViewHeaderMode_all: TableModel?
 }
 
 extension MainTableViewModel{
@@ -23,6 +25,11 @@ extension MainTableViewModel{
             }
             do {
                 let data = try JSONDecoder().decode(TableModel.self, from: jsonData)
+                self.mainContentViewHeaderMode_all = data
+                
+                guard let current = data.current else { return }
+                self.mainContentViewHeaderMode_current = current
+                
                 guard let forecast = data.forecast else { return }
                 guard let forecastday = forecast.forecastday else { return }
                 for forecastEachDay in forecastday{

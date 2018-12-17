@@ -18,6 +18,7 @@ struct TableModel: Decodable {
 struct Location: Decodable {
     var name: String?           //"name": "Chicago"
     var region: String?         //region": "Illinois"
+    var country: String?        //United States of America
     var lat: Double?
     var lon: Double?
     var localtime_epoch: Int?   //1545012759

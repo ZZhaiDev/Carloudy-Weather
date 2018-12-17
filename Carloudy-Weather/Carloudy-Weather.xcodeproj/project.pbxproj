@@ -29,7 +29,7 @@
 		A43F69C121C2F367005F8C1F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F69C021C2F367005F8C1F /* SettingViewController.swift */; };
 		A43F69C421C2F41B005F8C1F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F69C321C2F41B005F8C1F /* SearchViewController.swift */; };
 		A43F69C821C2F856005F8C1F /* SearchFirstViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F69C721C2F856005F8C1F /* SearchFirstViewCell.swift */; };
-		A43F69CA21C2F8C7005F8C1F /* Commons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F69C921C2F8C7005F8C1F /* Commons.swift */; };
+		A43F69CA21C2F8C7005F8C1F /* Commons_API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F69C921C2F8C7005F8C1F /* Commons_API.swift */; };
 		A43F69CE21C2FE53005F8C1F /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F69CD21C2FE53005F8C1F /* NetworkTools.swift */; };
 		A43F69D021C301E1005F8C1F /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F69CF21C301E1005F8C1F /* SearchViewModel.swift */; };
 		A43F69D221C30204005F8C1F /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F69D121C30204005F8C1F /* SearchModel.swift */; };
@@ -40,6 +40,9 @@
 		A43F69E021C455E1005F8C1F /* MainContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F69DE21C455E1005F8C1F /* MainContentTableViewCell.swift */; };
 		A43F69E121C455E1005F8C1F /* MainContentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43F69DF21C455E1005F8C1F /* MainContentTableViewCell.xib */; };
 		A43F69E321C45885005F8C1F /* MainContentTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F69E221C45885005F8C1F /* MainContentTableView.swift */; };
+		A43F6A1121C82FC3005F8C1F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F6A1021C82FC3005F8C1F /* BaseViewController.swift */; };
+		A45112D721C84F38003783D1 /* UnitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45112D621C84F38003783D1 /* UnitViewController.swift */; };
+		A45112D921C85909003783D1 /* Commons_variable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45112D821C85909003783D1 /* Commons_variable.swift */; };
 		DF855B732618410A2E63801D /* Pods_Carloudy_WeatherTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D0B573E78F15812736D4F9 /* Pods_Carloudy_WeatherTests.framework */; };
 		FDF5CC4BA13925C7C1A78153 /* Pods_Carloudy_Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 788147FB990BCF776A4A069A /* Pods_Carloudy_Weather.framework */; };
 /* End PBXBuildFile section */
@@ -85,7 +88,7 @@
 		A43F69C021C2F367005F8C1F /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		A43F69C321C2F41B005F8C1F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		A43F69C721C2F856005F8C1F /* SearchFirstViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFirstViewCell.swift; sourceTree = "<group>"; };
-		A43F69C921C2F8C7005F8C1F /* Commons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commons.swift; sourceTree = "<group>"; };
+		A43F69C921C2F8C7005F8C1F /* Commons_API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commons_API.swift; sourceTree = "<group>"; };
 		A43F69CD21C2FE53005F8C1F /* NetworkTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
 		A43F69CF21C301E1005F8C1F /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		A43F69D121C30204005F8C1F /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
@@ -96,6 +99,9 @@
 		A43F69DE21C455E1005F8C1F /* MainContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentTableViewCell.swift; sourceTree = "<group>"; };
 		A43F69DF21C455E1005F8C1F /* MainContentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainContentTableViewCell.xib; sourceTree = "<group>"; };
 		A43F69E221C45885005F8C1F /* MainContentTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentTableView.swift; sourceTree = "<group>"; };
+		A43F6A1021C82FC3005F8C1F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		A45112D621C84F38003783D1 /* UnitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitViewController.swift; sourceTree = "<group>"; };
+		A45112D821C85909003783D1 /* Commons_variable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commons_variable.swift; sourceTree = "<group>"; };
 		B01233311F248FE756306118 /* Pods-Carloudy-WeatherTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carloudy-WeatherTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Carloudy-WeatherTests/Pods-Carloudy-WeatherTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B574C23964FB71F98B3E4FF6 /* Pods-Carloudy-Weather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carloudy-Weather.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carloudy-Weather/Pods-Carloudy-Weather.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				A43F699E21C2E7A1005F8C1F /* MainViewController.swift */,
+				A43F6A1021C82FC3005F8C1F /* BaseViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -243,7 +250,8 @@
 			isa = PBXGroup;
 			children = (
 				A43F69BD21C2F18B005F8C1F /* Extension.swift */,
-				A43F69C921C2F8C7005F8C1F /* Commons.swift */,
+				A45112D821C85909003783D1 /* Commons_variable.swift */,
+				A43F69C921C2F8C7005F8C1F /* Commons_API.swift */,
 				A43F69CD21C2FE53005F8C1F /* NetworkTools.swift */,
 			);
 			path = Ultis;
@@ -254,6 +262,7 @@
 			children = (
 				A43F69C021C2F367005F8C1F /* SettingViewController.swift */,
 				3814F39821C358A000CCE1EE /* MineHead.swift */,
+				A45112D621C84F38003783D1 /* UnitViewController.swift */,
 			);
 			path = SettingViewController;
 			sourceTree = "<group>";
@@ -481,12 +490,13 @@
 			files = (
 				A43F69D921C43E99005F8C1F /* MainContentViewHeader.swift in Sources */,
 				A43F69CE21C2FE53005F8C1F /* NetworkTools.swift in Sources */,
-				A43F69CA21C2F8C7005F8C1F /* Commons.swift in Sources */,
+				A43F69CA21C2F8C7005F8C1F /* Commons_API.swift in Sources */,
 				38595EC421C5FD5D00A20673 /* MainHeaderViewModel.swift in Sources */,
 				380D232B21C5BA7F0036D1B1 /* MainCollectionView.swift in Sources */,
 				A43F69C821C2F856005F8C1F /* SearchFirstViewCell.swift in Sources */,
 				A43F69DB21C446FA005F8C1F /* MainContentViewCell.swift in Sources */,
 				3814F3A021C3593A00CCE1EE /* UIScrollView+ParallaxHeader.swift in Sources */,
+				A45112D921C85909003783D1 /* Commons_variable.swift in Sources */,
 				A43F69E321C45885005F8C1F /* MainContentTableView.swift in Sources */,
 				A43F69D221C30204005F8C1F /* SearchModel.swift in Sources */,
 				A43F69C421C2F41B005F8C1F /* SearchViewController.swift in Sources */,
@@ -501,12 +511,14 @@
 				A43F699D21C2E7A1005F8C1F /* AppDelegate.swift in Sources */,
 				38595ECE21C5FDB800A20673 /* TableModel.swift in Sources */,
 				A43F69C121C2F367005F8C1F /* SettingViewController.swift in Sources */,
+				A45112D721C84F38003783D1 /* UnitViewController.swift in Sources */,
 				38595ECA21C5FDAA00A20673 /* HeaderModel.swift in Sources */,
 				3814F39F21C3593A00CCE1EE /* ParallaxHeaderMode.swift in Sources */,
 				38595EC621C5FD6D00A20673 /* MainCollectionViewModel.swift in Sources */,
 				A43F69D721C4226B005F8C1F /* MainContentView.swift in Sources */,
 				3814F39721C34A1400CCE1EE /* SearchSecondViewCell.swift in Sources */,
 				38595EC821C5FD7900A20673 /* MainTableViewModel.swift in Sources */,
+				A43F6A1121C82FC3005F8C1F /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,16 +673,18 @@
 			baseConfigurationReference = 4107A6594C144F16C5C81E7E /* Pods-Carloudy-Weather.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = USU53FTLBA;
+				DEVELOPMENT_TEAM = TJEC8LNQP8;
 				INFOPLIST_FILE = "Carloudy-Weather/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "cognitiveAI.Carloudy-Weather";
+				PRODUCT_BUNDLE_IDENTIFIER = "cognitiveAI.Carloudy-Weather1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -681,16 +695,18 @@
 			baseConfigurationReference = B574C23964FB71F98B3E4FF6 /* Pods-Carloudy-Weather.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = USU53FTLBA;
+				DEVELOPMENT_TEAM = TJEC8LNQP8;
 				INFOPLIST_FILE = "Carloudy-Weather/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "cognitiveAI.Carloudy-Weather";
+				PRODUCT_BUNDLE_IDENTIFIER = "cognitiveAI.Carloudy-Weather1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

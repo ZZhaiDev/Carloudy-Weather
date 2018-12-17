@@ -52,7 +52,7 @@ class MainContentView: UIView {
     init(frame: CGRect, titles: [String]) {
         self.titles = titles
         super.init(frame: frame)
-//        backgroundColor = .gray
+        backgroundColor = .gray
         setupUI()
     }
     

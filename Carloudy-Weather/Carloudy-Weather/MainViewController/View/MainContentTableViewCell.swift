@@ -23,9 +23,16 @@ class MainContentTableViewCell: UITableViewCell {
             }
             
             if let day = tableViewCellMode?.day{
-                if let maxtemp_c = day.maxtemp_c, let mintemp_c = day.mintemp_c{
-                    self.minTemp.text = String(Int(mintemp_c)) + "°"
-                    self.maxTemp.text = String(Int(maxtemp_c)) + "°"
+                if temperatureUnitIsCelsius == true{
+                    if let maxtemp_c = day.maxtemp_c, let mintemp_c = day.mintemp_c{
+                        self.minTemp.text = String(Int(mintemp_c)) + "°"
+                        self.maxTemp.text = String(Int(maxtemp_c)) + "°"
+                    }
+                }else{
+                    if let maxtemp_f = day.maxtemp_f, let mintemp_f = day.mintemp_f{
+                        self.minTemp.text = String(Int(mintemp_f)) + "°"
+                        self.maxTemp.text = String(Int(maxtemp_f)) + "°"
+                    }
                 }
                 if let condition = day.condition{
                     if let icon = condition.icon{

@@ -49,6 +49,7 @@ extension MainContentTableView: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: tableViewCellId, for: indexPath) as! MainContentTableViewCell
         cell.backgroundColor = .clear
+        cell.selectionStyle = .none
         cell.tableViewCellMode = self.forecastday![indexPath.item]
         return cell
     }

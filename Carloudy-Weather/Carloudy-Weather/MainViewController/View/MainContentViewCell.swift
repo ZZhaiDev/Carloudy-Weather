@@ -13,7 +13,8 @@ class MainContentViewCell: UICollectionViewCell {
         didSet{
             if let main = collectionViewMode?.main{
                 if let temp = main.temp{
-                   tempLabel.text = String(Int(temp - 273.15 + 0.5)) + "°"
+                   tempLabel.text = getTemperatureStr(Imperial: temp)
+                   
                 }
             }
             if let weathers = collectionViewMode?.weather{
@@ -25,6 +26,7 @@ class MainContentViewCell: UICollectionViewCell {
             }
             if let dt = collectionViewMode?.dt{
                 timeLabel.text = Date.dateSince1970(timeStamp: Double(dt))
+                ZJPrint(timeLabel.text)
             }
             
         }

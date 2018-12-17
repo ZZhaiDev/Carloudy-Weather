@@ -11,7 +11,7 @@ import CarloudyiOS
 import CoreLocation
 
 private let zjTitleViewH : CGFloat = 40
-class MainViewController: UIViewController {
+class MainViewController: BaseViewController {
     
     var currentCity: String?
     fileprivate lazy var mainCollectionViewMode = MainCollectionViewModel()
@@ -57,8 +57,29 @@ class MainViewController: UIViewController {
 //            let names = UIFont.fontNames(forFamilyName: family)
 //            print("Family: \(family) Font names: \(names)")
 //        }
+//        carloudyLocation.locationManager.location
         setupUI()
     }
+    
+    override func setupUI() {
+        
+        contentView = mainContentView
+        
+        view.addSubview(pageTitleView)
+        view.addSubview(mainContentView)
+        navigationItem.titleView = labelView
+//        view.backgroundColor = .white
+        setupNavigationBarItem()
+        
+        
+        
+        super.setupUI()
+//        loadDataFinished()
+        
+    }
+    
+  
+
 }
 
 
@@ -75,23 +96,19 @@ extension MainViewController{
             self.mainContentView.collectionView.collectionView.reloadData()
         }
         mainTableViewModel.loadAPIUXWeather(city: currentCity) {
+            self.mainTableViewModel.mainTableViewModelForecastday.removeFirst()         //remove 当天数据
             self.mainContentView.tableView.forecastday = self.mainTableViewModel.mainTableViewModelForecastday
             self.mainContentView.tableView.tableview.reloadData()
+            self.mainContentView.mainContentViewHeader.headerViewModel = self.mainCollectionViewMode.mainCollectionViewModel
         }
-        
+        loadDataFinished()
     }
 }
 
 
 // MARK:- UISetup
 extension MainViewController{
-    fileprivate func setupUI(){
-        view.addSubview(pageTitleView)
-        view.addSubview(mainContentView)
-        navigationItem.titleView = labelView
-        view.backgroundColor = .gray
-        setupNavigationBarItem()
-    }
+    
     
     fileprivate func setupNavigationBarItem(){
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
@@ -124,7 +141,11 @@ extension MainViewController: CarloudyLocationDelegate{
     
     func carloudyLocation(locationName: String, street: String, city: String, zipCode: String, country: String) {
         let currentCity = city.replacingOccurrences(of: " ", with: "%20")
-        loadData(currentCity: currentCity)
+        ZJPrint(currentCity)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+        self.loadData(currentCity: currentCity)
+        }
+        
     }
     
     
