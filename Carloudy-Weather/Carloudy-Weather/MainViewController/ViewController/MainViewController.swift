@@ -15,6 +15,7 @@ class MainViewController: UIViewController {
     
     var currentCity: String?
     fileprivate lazy var mainCollectionViewMode = MainCollectionViewModel()
+    fileprivate lazy var mainTableViewModel = MainTableViewModel()
     fileprivate lazy var carloudyLocation = CarloudyLocation(sendSpeed: true, sendAddress: true)
     private lazy var navigationMaxY: CGFloat = (navigationController?.navigationBar.frame.maxY) ?? 88
     let titles = ["Chicago"]
@@ -66,8 +67,18 @@ class MainViewController: UIViewController {
 extension MainViewController{
     fileprivate func loadData(currentCity: String){
         mainCollectionViewMode.loadWeatherData(str: currentCity) {
-            
+            ZJPrint(self.mainCollectionViewMode.mainCollectionViewModel.city)
+            ZJPrint(self.mainCollectionViewMode.mainCollectionViewModel.cnt)
+            ZJPrint(self.mainCollectionViewMode.mainCollectionViewModel.list)
+            // 传送数据 并刷新
+            self.mainContentView.collectionView.list = self.mainCollectionViewMode.mainCollectionViewModelList
+            self.mainContentView.collectionView.collectionView.reloadData()
         }
+        mainTableViewModel.loadAPIUXWeather(city: currentCity) {
+            self.mainContentView.tableView.forecastday = self.mainTableViewModel.mainTableViewModelForecastday
+            self.mainContentView.tableView.tableview.reloadData()
+        }
+        
     }
 }
 

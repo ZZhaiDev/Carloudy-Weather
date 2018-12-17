@@ -11,7 +11,7 @@ import UIKit
 fileprivate let cellId = "cellId"
 
 class MainCollectionView: UIView {
-    
+    var list: [List]?
     lazy var collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 50, height: 100)
@@ -43,12 +43,13 @@ class MainCollectionView: UIView {
 
 extension MainCollectionView: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        guard let count = list?.count else { return 0 }
+        return min(count, 20)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MainContentViewCell
-//        cell.backgroundColor = .red
+        cell.collectionViewMode = list![indexPath.item]
         return cell
     }
 }

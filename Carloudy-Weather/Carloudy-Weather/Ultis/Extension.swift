@@ -73,3 +73,16 @@ extension UIView {
     }
     
 }
+
+extension Date{
+    static func dateSince1970(timeStamp: Double) -> String{
+        let date = Date(timeIntervalSince1970: timeStamp)
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(abbreviation: "GMT-06:00") //Set timezone that you want
+        dateFormatter.locale = NSLocale.current
+        //dateFormatter.dateFormat = "yyyy-MM-dd HH:mm" //Specify your format that you want
+        dateFormatter.dateFormat = "HH:mm"
+        let strDate = dateFormatter.string(from: date)
+        return strDate
+    }
+}

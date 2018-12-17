@@ -12,6 +12,8 @@ import UIKit
 fileprivate let tableViewCellId = "tableViewCellId"
 class MainContentTableView: UIView {
     
+    var forecastday: [Forecastday]?
+    
     lazy var tableview: UITableView = {
        let tv = UITableView()
         tv.register(UINib(nibName: "MainContentTableViewCell", bundle: nil), forCellReuseIdentifier: tableViewCellId)
@@ -40,13 +42,14 @@ class MainContentTableView: UIView {
 
 extension MainContentTableView: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        guard let count = forecastday?.count else { return 0 }
+        return min(count, 5)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: tableViewCellId, for: indexPath) as! MainContentTableViewCell
         cell.backgroundColor = .clear
-        
+        cell.tableViewCellMode = self.forecastday![indexPath.item]
         return cell
     }
     

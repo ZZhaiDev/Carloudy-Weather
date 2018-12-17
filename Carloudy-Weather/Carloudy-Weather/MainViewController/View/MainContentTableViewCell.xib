@@ -33,13 +33,16 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="33" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbZ-PQ-bZy">
-                        <rect key="frame" x="291" y="11.5" width="21" height="20.5"/>
+                        <rect key="frame" x="267" y="11.5" width="45" height="20.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="45" id="3Fy-Gg-L7Y"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="45" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QT9-TS-8do">
-                        <rect key="frame" x="242" y="11.5" width="21" height="20.5"/>
+                        <rect key="frame" x="218" y="11.5" width="21" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -57,6 +60,12 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="imageV" destination="HPQ-IK-5vv" id="fEp-Dq-FNW"/>
+                <outlet property="maxTemp" destination="QT9-TS-8do" id="8es-zf-fhE"/>
+                <outlet property="minTemp" destination="sbZ-PQ-bZy" id="XcM-fw-l9s"/>
+                <outlet property="weekDay" destination="tgb-Ll-Z1K" id="X9J-6x-OrV"/>
+            </connections>
             <point key="canvasLocation" x="40" y="46.776611694152926"/>
         </tableViewCell>
     </objects>
