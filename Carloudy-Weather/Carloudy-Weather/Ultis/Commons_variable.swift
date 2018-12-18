@@ -16,6 +16,16 @@ var temperatureUnitIsCelsius = false {
     }
 }
 
+class CatchWeatherData: NSObject, Codable {
+    var timeStamp: Double?
+    var tableViewData: TableModel?
+    var collectionData: CollectionModel?
+}
+//var catchWeatherData: [String: Any]?
+
+//let fileUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+//    .appendingPathComponent("weatherData.json")
+
 func getTemperatureStr(Imperial: CGFloat) -> String{
     if temperatureUnitIsCelsius == true{
         return String(Int(Imperial - 273.15 + 0.5)) + "°"

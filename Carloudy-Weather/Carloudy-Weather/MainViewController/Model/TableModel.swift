@@ -9,13 +9,13 @@
 import UIKit
 
 
-struct TableModel: Decodable {
+struct TableModel: Codable {
     var location: Location?
     var current: Current?
     var forecast: Forecast?
 }
 
-struct Location: Decodable {
+struct Location: Codable {
     var name: String?           //"name": "Chicago"
     var region: String?         //region": "Illinois"
     var country: String?        //United States of America
@@ -26,7 +26,7 @@ struct Location: Decodable {
     var forecast: Forecast?
 }
 
-struct Current: Decodable {
+struct Current: Codable {
     var last_updated_epoch: Int?    //1545012009
     var last_updated: String?       //2018-12-16 20:00
     var temp_c: CGFloat?        //4.4
@@ -50,24 +50,24 @@ struct Current: Decodable {
     var uv: Int? //2
 }
 
-struct Condition: Decodable {
+struct Condition: Codable {
     var text: String?       //partly cloudy
     var icon: String?       //http://api.apixu.com/v1///cdn.apixu.com/weather/64x64/night/116.png
     var code: Int?          //1003
 }
 
-struct Forecast: Decodable {
+struct Forecast: Codable {
     var forecastday: [Forecastday]?
 }
 
-struct Forecastday: Decodable {
+struct Forecastday: Codable {
     var date: String?      //2018-12-16
     var date_epoch: Double?         //1544918400
     var day: Day?
     var astro: Astro?
 }
 
-struct Day: Decodable {
+struct Day: Codable {
     var maxtemp_c: CGFloat?     //6.2
     var maxtemp_f: CGFloat?     //6.2
     var mintemp_c: CGFloat?     //6.2
@@ -81,7 +81,7 @@ struct Day: Decodable {
     var uv: CGFloat?
 }
 
-struct Astro: Decodable {
+struct Astro: Codable {
     var sunrise: String?            //07:12 AM
     var sunset: String?             //04:12 pM
     var moonrise: String?           //"12:55 PM"

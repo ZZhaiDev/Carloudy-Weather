@@ -10,14 +10,14 @@ import UIKit
 
 //http://api.openweathermap.org/data/2.5/forecast?q=Chicago,US&appid=76d9dff8a633f10f3c5944948d84bd8b
 
-struct CollectionModel: Decodable {
+struct CollectionModel: Codable {
     //number of item
     var cnt: Int?
     var list: [List]?
     var city: City?
 }
 
-struct List: Decodable {
+struct List: Codable {
     // since1970
     var dt: Int?
     var main: Main?
@@ -27,26 +27,26 @@ struct List: Decodable {
     var dt_text: String?
 }
 
-struct Main: Decodable {
+struct Main: Codable {
     var temp: CGFloat?
     var temp_min: CGFloat?
     var temp_max: CGFloat?
     var pressure: CGFloat?
 }
 
-struct Weather: Decodable {
+struct Weather: Codable {
     var id: Int?
     var main: String?
     var description: String?
     var icon: String?
 }
 
-struct Wind: Decodable {
+struct Wind: Codable {
     var speed: CGFloat?
     var deg: CGFloat?
 }
 
-struct City: Decodable {
+struct City: Codable {
     var id: Int?
     var name: String?
     var coord: Coord?
@@ -54,7 +54,7 @@ struct City: Decodable {
     var population: Int?
 }
 
-struct Coord: Decodable{
+struct Coord: Codable{
     var lat: CGFloat?
     var lon: CGFloat?
 }

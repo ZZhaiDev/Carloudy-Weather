@@ -223,8 +223,8 @@
 		A43F699B21C2E7A1005F8C1F /* Carloudy-Weather */ = {
 			isa = PBXGroup;
 			children = (
-				A43F69D321C419A1005F8C1F /* MainViewController */,
 				3814F39A21C3593A00CCE1EE /* ParallaxHeader */,
+				A43F69D321C419A1005F8C1F /* MainViewController */,
 				A43F69C221C2F406005F8C1F /* SearchViewController */,
 				A43F69BF21C2F33C005F8C1F /* SettingViewController */,
 				A43F69BC21C2F15C005F8C1F /* Ultis */,

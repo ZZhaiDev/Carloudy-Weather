@@ -87,21 +87,83 @@ class MainViewController: BaseViewController {
 // MARK:- API CALL
 extension MainViewController{
     fileprivate func loadData(currentCity: String){
+        
+        let defaults = UserDefaults.standard
+        let str = defaults.string(forKey: currentCity.lowercased())
+        if let data = str?.data(using: .utf8){
+            do {
+                let json = try JSONDecoder().decode(CatchWeatherData.self, from: data)
+                if let timestamp = json.timeStamp {
+                    ZJPrint(timestamp)
+                    
+                }
+                
+            } catch let jsonError {
+                ZJPrint(jsonError)
+            }
+            
+        }
+        
+    
+        
+        var collectionData: CollectionModel?
+        var tableViewData: TableModel?
+        
         mainCollectionViewMode.loadWeatherData(str: currentCity) {
-            ZJPrint(self.mainCollectionViewMode.mainCollectionViewModel.city)
-            ZJPrint(self.mainCollectionViewMode.mainCollectionViewModel.cnt)
-            ZJPrint(self.mainCollectionViewMode.mainCollectionViewModel.list)
+            collectionData = self.mainCollectionViewMode.mainCollectionViewModel
+            self.saveData(collectionData: collectionData, tableViewData: tableViewData, currentCity: currentCity)
             // 传送数据 并刷新
-            self.mainContentView.collectionView.list = self.mainCollectionViewMode.mainCollectionViewModelList
-            self.mainContentView.collectionView.collectionView.reloadData()
+            self.reloadCollectionData()
         }
         mainTableViewModel.loadAPIUXWeather(city: currentCity) {
-            self.mainTableViewModel.mainTableViewModelForecastday.removeFirst()         //remove 当天数据
-            self.mainContentView.tableView.forecastday = self.mainTableViewModel.mainTableViewModelForecastday
-            self.mainContentView.tableView.tableview.reloadData()
-            self.mainContentView.mainContentViewHeader.headerViewModel = self.mainCollectionViewMode.mainCollectionViewModel
+            tableViewData = self.mainTableViewModel.mainContentViewHeaderMode_all
+            self.saveData(collectionData: collectionData, tableViewData: tableViewData, currentCity: currentCity)
+            self.reloadTableData()
         }
         loadDataFinished()
+    }
+    
+    fileprivate func saveData(collectionData: CollectionModel?, tableViewData: TableModel?, currentCity: String){
+        let timestamp = NSDate().timeIntervalSince1970
+        if collectionData == nil || tableViewData == nil{ return }
+        
+        let dict = CatchWeatherData()
+        dict.timeStamp = timestamp
+        dict.collectionData = collectionData
+        dict.tableViewData = tableViewData
+        
+        if let jsonData = try? JSONEncoder().encode(dict) {
+            if let jsonString = String(data: jsonData, encoding: .utf8) {
+                    let defaults = UserDefaults.standard
+                    defaults.set(jsonString, forKey: currentCity.lowercased())
+            }
+        }
+        
+////        var MainDict =  [String: Any]()
+//        var dict = [String: Any]()
+//        dict["timestamp"] = timestamp
+//        dict["collectionData"] = collectionData
+//        dict["tableViewData"] = tableViewData
+////        MainDict[currentCity] = dict
+//        let defaults = UserDefaults.standard
+//        defaults.set(collectionData!, forKey: currentCity.lowercased())
+////        let data = NSKeyedArchiver.archivedData(withRootObject: dict)
+////        UserDefaults.standard.set(data, forKey: currentCity.lowercased())
+        
+        
+        
+    }
+    
+    fileprivate func reloadCollectionData(){
+        self.mainContentView.collectionView.list = self.mainCollectionViewMode.mainCollectionViewModelList
+        self.mainContentView.collectionView.collectionView.reloadData()
+    }
+    
+    fileprivate func reloadTableData(){
+       self.mainTableViewModel.mainTableViewModelForecastday.removeFirst()         //remove 当天数据
+        self.mainContentView.tableView.forecastday = self.mainTableViewModel.mainTableViewModelForecastday
+        self.mainContentView.tableView.tableview.reloadData()
+        self.mainContentView.mainContentViewHeader.headerViewModel = self.mainCollectionViewMode.mainCollectionViewModel
     }
 }
 
@@ -148,8 +210,7 @@ extension MainViewController: CarloudyLocationDelegate{
         
     }
     
-    
-    
-    
 }
+
+
 
