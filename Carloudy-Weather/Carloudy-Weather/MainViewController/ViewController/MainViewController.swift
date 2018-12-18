@@ -89,19 +89,18 @@ extension MainViewController{
     fileprivate func loadData(currentCity: String){
         
         let defaults = UserDefaults.standard
-        let str = defaults.string(forKey: currentCity.lowercased())
-        if let data = str?.data(using: .utf8){
+        let jsonString = defaults.string(forKey: currentCity.lowercased())
+        if let data = jsonString?.data(using: .utf8){
             do {
                 let json = try JSONDecoder().decode(CatchWeatherData.self, from: data)
-                if let timestamp = json.timeStamp {
+                if let timestamp = json.timeStamp, let tableViewModel = json.tableViewData, let collectionModel = json.collectionData {
                     ZJPrint(timestamp)
-                    
+                    ZJPrint(tableViewModel)
+                    ZJPrint(collectionModel)
                 }
-                
             } catch let jsonError {
                 ZJPrint(jsonError)
             }
-            
         }
         
     
@@ -131,7 +130,7 @@ extension MainViewController{
         dict.timeStamp = timestamp
         dict.collectionData = collectionData
         dict.tableViewData = tableViewData
-        
+    
         if let jsonData = try? JSONEncoder().encode(dict) {
             if let jsonString = String(data: jsonData, encoding: .utf8) {
                     let defaults = UserDefaults.standard
