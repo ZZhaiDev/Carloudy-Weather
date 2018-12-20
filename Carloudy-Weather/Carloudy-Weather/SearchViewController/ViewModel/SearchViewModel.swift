@@ -14,7 +14,7 @@ class SearchViewModel {
 
 extension SearchViewModel{
     func loadCitiesData(str: String, finishesCallBack: @escaping () -> ()){
-        let urlStr = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=\(str)&types=(cities)&language=EN&country=us&key=AIzaSyB-v-ac0d_I5do478BBROehAvLbltTpsGw"
+        let urlStr = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=\(str)&types=(cities)&language=EN&country=us&key=\(googleSerivePrivateAPI)"
         NetworkTools.requestData(.get, URLString: urlStr, parameters: nil) { (result) in
             guard let resultDict = result as? [String: Any] else { return }
             guard let predictions = resultDict["predictions"] as? [[String: Any]] else { return }

@@ -26,7 +26,7 @@ class MainContentViewCell: UICollectionViewCell {
             }
             if let dt = collectionViewMode?.dt{
                 timeLabel.text = Date.dateSince1970(timeStamp: Double(dt))
-                ZJPrint(timeLabel.text)
+//                ZJPrint(timeLabel.text)
             }
             
         }

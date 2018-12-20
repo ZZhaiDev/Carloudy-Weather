@@ -18,7 +18,7 @@ import UIKit
 //1970 to now: https://www.epochconverter.com/
 
 //Google
-let googleSerivePrivateAPI = "AIzaSyB-v-ac0d_I5do478BBROehAvLbltTpsGw"
+let googleSerivePrivateAPI = ""
 
 //open Weather API
 let openWeatherURL = "http://api.openweathermap.org/data/2.5/weather?lat=41.889824&lon=-87.629045&APPID=76d9dff8a633f10f3c5944948d84bd8b"

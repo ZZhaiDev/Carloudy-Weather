@@ -43,6 +43,7 @@
 		A43F6A1121C82FC3005F8C1F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F6A1021C82FC3005F8C1F /* BaseViewController.swift */; };
 		A45112D721C84F38003783D1 /* UnitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45112D621C84F38003783D1 /* UnitViewController.swift */; };
 		A45112D921C85909003783D1 /* Commons_variable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45112D821C85909003783D1 /* Commons_variable.swift */; };
+		A45112E521CAE607003783D1 /* CarloudySettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45112E421CAE607003783D1 /* CarloudySettingViewController.swift */; };
 		DF855B732618410A2E63801D /* Pods_Carloudy_WeatherTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D0B573E78F15812736D4F9 /* Pods_Carloudy_WeatherTests.framework */; };
 		FDF5CC4BA13925C7C1A78153 /* Pods_Carloudy_Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 788147FB990BCF776A4A069A /* Pods_Carloudy_Weather.framework */; };
 /* End PBXBuildFile section */
@@ -75,13 +76,13 @@
 		4107A6594C144F16C5C81E7E /* Pods-Carloudy-Weather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carloudy-Weather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Carloudy-Weather/Pods-Carloudy-Weather.debug.xcconfig"; sourceTree = "<group>"; };
 		6D89F284ACA709506FBDFA38 /* Pods-Carloudy-WeatherTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carloudy-WeatherTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carloudy-WeatherTests/Pods-Carloudy-WeatherTests.release.xcconfig"; sourceTree = "<group>"; };
 		788147FB990BCF776A4A069A /* Pods_Carloudy_Weather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carloudy_Weather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A43F699921C2E7A1005F8C1F /* Carloudy-Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Carloudy-Weather.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A43F699921C2E7A1005F8C1F /* CarloudyWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarloudyWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A43F699C21C2E7A1005F8C1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A43F699E21C2E7A1005F8C1F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A43F69A321C2E7A4005F8C1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A43F69A621C2E7A4005F8C1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A43F69A821C2E7A4005F8C1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A43F69AD21C2E7A4005F8C1F /* Carloudy-WeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Carloudy-WeatherTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A43F69AD21C2E7A4005F8C1F /* CarloudyWeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarloudyWeatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A43F69B121C2E7A4005F8C1F /* Carloudy_WeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carloudy_WeatherTests.swift; sourceTree = "<group>"; };
 		A43F69B321C2E7A4005F8C1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A43F69BD21C2F18B005F8C1F /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -102,6 +103,7 @@
 		A43F6A1021C82FC3005F8C1F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		A45112D621C84F38003783D1 /* UnitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitViewController.swift; sourceTree = "<group>"; };
 		A45112D821C85909003783D1 /* Commons_variable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commons_variable.swift; sourceTree = "<group>"; };
+		A45112E421CAE607003783D1 /* CarloudySettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarloudySettingViewController.swift; sourceTree = "<group>"; };
 		B01233311F248FE756306118 /* Pods-Carloudy-WeatherTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carloudy-WeatherTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Carloudy-WeatherTests/Pods-Carloudy-WeatherTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B574C23964FB71F98B3E4FF6 /* Pods-Carloudy-Weather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carloudy-Weather.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carloudy-Weather/Pods-Carloudy-Weather.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -214,8 +216,8 @@
 		A43F699A21C2E7A1005F8C1F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A43F699921C2E7A1005F8C1F /* Carloudy-Weather.app */,
-				A43F69AD21C2E7A4005F8C1F /* Carloudy-WeatherTests.xctest */,
+				A43F699921C2E7A1005F8C1F /* CarloudyWeather.app */,
+				A43F69AD21C2E7A4005F8C1F /* CarloudyWeatherTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -263,6 +265,7 @@
 				A43F69C021C2F367005F8C1F /* SettingViewController.swift */,
 				3814F39821C358A000CCE1EE /* MineHead.swift */,
 				A45112D621C84F38003783D1 /* UnitViewController.swift */,
+				A45112E421CAE607003783D1 /* CarloudySettingViewController.swift */,
 			);
 			path = SettingViewController;
 			sourceTree = "<group>";
@@ -325,9 +328,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A43F699821C2E7A1005F8C1F /* Carloudy-Weather */ = {
+		A43F699821C2E7A1005F8C1F /* CarloudyWeather */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A43F69B621C2E7A4005F8C1F /* Build configuration list for PBXNativeTarget "Carloudy-Weather" */;
+			buildConfigurationList = A43F69B621C2E7A4005F8C1F /* Build configuration list for PBXNativeTarget "CarloudyWeather" */;
 			buildPhases = (
 				C9B1DA84A484758E97F0A999 /* [CP] Check Pods Manifest.lock */,
 				A43F699521C2E7A1005F8C1F /* Sources */,
@@ -339,14 +342,14 @@
 			);
 			dependencies = (
 			);
-			name = "Carloudy-Weather";
+			name = CarloudyWeather;
 			productName = "Carloudy-Weather";
-			productReference = A43F699921C2E7A1005F8C1F /* Carloudy-Weather.app */;
+			productReference = A43F699921C2E7A1005F8C1F /* CarloudyWeather.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A43F69AC21C2E7A4005F8C1F /* Carloudy-WeatherTests */ = {
+		A43F69AC21C2E7A4005F8C1F /* CarloudyWeatherTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A43F69B921C2E7A4005F8C1F /* Build configuration list for PBXNativeTarget "Carloudy-WeatherTests" */;
+			buildConfigurationList = A43F69B921C2E7A4005F8C1F /* Build configuration list for PBXNativeTarget "CarloudyWeatherTests" */;
 			buildPhases = (
 				529E60F57BEF1C85C9A52FD8 /* [CP] Check Pods Manifest.lock */,
 				A43F69A921C2E7A4005F8C1F /* Sources */,
@@ -358,9 +361,9 @@
 			dependencies = (
 				A43F69AF21C2E7A4005F8C1F /* PBXTargetDependency */,
 			);
-			name = "Carloudy-WeatherTests";
+			name = CarloudyWeatherTests;
 			productName = "Carloudy-WeatherTests";
-			productReference = A43F69AD21C2E7A4005F8C1F /* Carloudy-WeatherTests.xctest */;
+			productReference = A43F69AD21C2E7A4005F8C1F /* CarloudyWeatherTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -382,7 +385,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A43F699421C2E7A1005F8C1F /* Build configuration list for PBXProject "Carloudy-Weather" */;
+			buildConfigurationList = A43F699421C2E7A1005F8C1F /* Build configuration list for PBXProject "CarloudyWeather" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -395,8 +398,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A43F699821C2E7A1005F8C1F /* Carloudy-Weather */,
-				A43F69AC21C2E7A4005F8C1F /* Carloudy-WeatherTests */,
+				A43F699821C2E7A1005F8C1F /* CarloudyWeather */,
+				A43F69AC21C2E7A4005F8C1F /* CarloudyWeatherTests */,
 			);
 		};
 /* End PBXProject section */
@@ -502,6 +505,7 @@
 				A43F69C421C2F41B005F8C1F /* SearchViewController.swift in Sources */,
 				A43F69E021C455E1005F8C1F /* MainContentTableViewCell.swift in Sources */,
 				A43F69BE21C2F18B005F8C1F /* Extension.swift in Sources */,
+				A45112E521CAE607003783D1 /* CarloudySettingViewController.swift in Sources */,
 				A43F699F21C2E7A1005F8C1F /* MainViewController.swift in Sources */,
 				38595ECC21C5FDB200A20673 /* CollectionModel.swift in Sources */,
 				A43F69D521C419B5005F8C1F /* PageTitleView.swift in Sources */,
@@ -535,7 +539,7 @@
 /* Begin PBXTargetDependency section */
 		A43F69AF21C2E7A4005F8C1F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A43F699821C2E7A1005F8C1F /* Carloudy-Weather */;
+			target = A43F699821C2E7A1005F8C1F /* CarloudyWeather */;
 			targetProxy = A43F69AE21C2E7A4005F8C1F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -686,7 +690,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -708,7 +712,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -730,7 +734,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Carloudy-Weather.app/Carloudy-Weather";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CarloudyWeather.app/CarloudyWeather";
 			};
 			name = Debug;
 		};
@@ -752,14 +756,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Carloudy-Weather.app/Carloudy-Weather";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CarloudyWeather.app/CarloudyWeather";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A43F699421C2E7A1005F8C1F /* Build configuration list for PBXProject "Carloudy-Weather" */ = {
+		A43F699421C2E7A1005F8C1F /* Build configuration list for PBXProject "CarloudyWeather" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A43F69B421C2E7A4005F8C1F /* Debug */,
@@ -768,7 +772,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A43F69B621C2E7A4005F8C1F /* Build configuration list for PBXNativeTarget "Carloudy-Weather" */ = {
+		A43F69B621C2E7A4005F8C1F /* Build configuration list for PBXNativeTarget "CarloudyWeather" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A43F69B721C2E7A4005F8C1F /* Debug */,
@@ -777,7 +781,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A43F69B921C2E7A4005F8C1F /* Build configuration list for PBXNativeTarget "Carloudy-WeatherTests" */ = {
+		A43F69B921C2E7A4005F8C1F /* Build configuration list for PBXNativeTarget "CarloudyWeatherTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A43F69BA21C2E7A4005F8C1F /* Debug */,

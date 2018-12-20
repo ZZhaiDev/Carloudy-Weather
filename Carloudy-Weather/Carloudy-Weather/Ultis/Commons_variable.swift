@@ -8,6 +8,9 @@
 
 import UIKit
 
+var currentCity_: String?
+var carloudyBlePairKey_: String?
+var carloudyAppStoreAppKey_: String = "86kbwkvk"
 
 var temperatureUnitIsCelsius = false {
     didSet{

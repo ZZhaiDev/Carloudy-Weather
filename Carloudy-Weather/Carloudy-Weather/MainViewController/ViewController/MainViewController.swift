@@ -16,22 +16,24 @@ class MainViewController: BaseViewController {
     var currentCity: String?
     fileprivate lazy var mainCollectionViewMode = MainCollectionViewModel()
     fileprivate lazy var mainTableViewModel = MainTableViewModel()
+    
+    
     fileprivate lazy var carloudyLocation = CarloudyLocation(sendSpeed: true, sendAddress: true)
     private lazy var navigationMaxY: CGFloat = (navigationController?.navigationBar.frame.maxY) ?? 88
-    let titles = ["Chicago"]
+    private lazy var mainContentViewHeader = MainContentViewHeader()
+    
     
     lazy var labelView: UILabel = {
        let label = UILabel()
         label.textColor = .black
-//        var customFont = UIFont(name:"Baskerville-BoldItalic",size:UIFont.labelFontSize)
-//        label.font = UIFontMetrics.default.scaledFont(for: customFont ?? UIFont())
-//        label.adjustsFontForContentSizeCategory = true
         label.font = UIFont(name:"PartyLetPlain",size:25)
-//        SnellRoundhand, SnellRoundhand-Bold,SnellRoundhand-Black, PartyLetPlain, BradleyHandITCTT-Bold, ZapfDingbatsITC
         label.text = "Carloudy-Weather"
         return label
     }()
     
+    
+    var titles = [""]
+    var addedTitles = false
     fileprivate lazy var pageTitleView: PageTitleView = {
         let titleFrame = CGRect(x: 0, y: navigationMaxY, width: zjScreenWidth, height: zjTitleViewH)
         let titleView = PageTitleView(frame: titleFrame, titles: titles)
@@ -49,75 +51,84 @@ class MainViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         carloudyLocation.delegate = self
+//        mainContentViewHeader.delegate = self
         carloudyLocation.locationManager.requestAlwaysAuthorization()
         carloudyLocation.locationManager.startUpdatingLocation()
-//        for family in UIFont.familyNames.sorted() {
-//            let names = UIFont.fontNames(forFamilyName: family)
-//            print("Family: \(family) Font names: \(names)")
-//        }
-//        carloudyLocation.locationManager.location
         setupUI()
     }
     
-    override func setupUI() {
-        
-        contentView = mainContentView
-        
-        view.addSubview(pageTitleView)
-        view.addSubview(mainContentView)
-        navigationItem.titleView = labelView
-//        view.backgroundColor = .white
-        setupNavigationBarItem()
-        
-        
-        
-        super.setupUI()
-//        loadDataFinished()
-        
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
-  
-
+    override func setupUI() {
+        contentView = mainContentView
+        view.addSubview(mainContentView)
+        navigationItem.titleView = labelView
+        setupNavigationBarItem()
+        super.setupUI()
+    }
 }
 
 
 
 // MARK:- API CALL
 extension MainViewController{
-    fileprivate func loadData(currentCity: String){
-        
+    func loadData(currentCity: String){
+        let timestampNow = NSDate().timeIntervalSince1970
         let defaults = UserDefaults.standard
         let jsonString = defaults.string(forKey: currentCity.lowercased())
-        if let data = jsonString?.data(using: .utf8){
-            do {
-                let json = try JSONDecoder().decode(CatchWeatherData.self, from: data)
-                if let timestamp = json.timeStamp, let tableViewModel = json.tableViewData, let collectionModel = json.collectionData {
-                    ZJPrint(timestamp)
-                    ZJPrint(tableViewModel)
-                    ZJPrint(collectionModel)
+        
+        if jsonString != nil{       //不为空才检查
+            if let data = jsonString?.data(using: .utf8){
+                do {
+                    let json = try JSONDecoder().decode(CatchWeatherData.self, from: data)
+                    if let timestamp = json.timeStamp, let tableViewModel = json.tableViewData, let collectionModel = json.collectionData {
+                        if timestampNow - timestamp < 3600{  //小于1小时不更新
+                            if let lists = collectionModel.list{
+                                self.reloadCollectionData(lists: lists)
+                            }
+                            if let forecast = tableViewModel.forecast, let forecastday = forecast.forecastday{
+                                self.reloadTableData(forecastdays: forecastday, mainCollectionViewData: collectionModel)
+                            }
+                            loadDataFinished()
+                            return
+                        }
+                    }
+                } catch let jsonError {
+                    ZJPrint(jsonError)
                 }
-            } catch let jsonError {
-                ZJPrint(jsonError)
             }
         }
-        
-    
         
         var collectionData: CollectionModel?
         var tableViewData: TableModel?
         
+        ZJPrint("********************************************************")
+        ZJPrint("     *********************************************")
+        ZJPrint("           **************************")
+        ZJPrint("                  重新call 数据了")
+        ZJPrint("           **************************")
+        ZJPrint("     *********************************************")
+        ZJPrint("********************************************************")
+        
         mainCollectionViewMode.loadWeatherData(str: currentCity) {
-            collectionData = self.mainCollectionViewMode.mainCollectionViewModel
-            self.saveData(collectionData: collectionData, tableViewData: tableViewData, currentCity: currentCity)
-            // 传送数据 并刷新
-            self.reloadCollectionData()
+            DispatchQueue.main.async {
+                collectionData = self.mainCollectionViewMode.mainCollectionViewModel
+                self.saveData(collectionData: collectionData, tableViewData: tableViewData, currentCity: currentCity)
+                // 传送数据 并刷新
+                self.reloadCollectionData(lists: self.mainCollectionViewMode.mainCollectionViewModelList)
+            }
+            
         }
         mainTableViewModel.loadAPIUXWeather(city: currentCity) {
-            tableViewData = self.mainTableViewModel.mainContentViewHeaderMode_all
-            self.saveData(collectionData: collectionData, tableViewData: tableViewData, currentCity: currentCity)
-            self.reloadTableData()
+            DispatchQueue.main.async {
+                tableViewData = self.mainTableViewModel.mainContentViewHeaderMode_all
+                self.saveData(collectionData: collectionData, tableViewData: tableViewData, currentCity: currentCity)
+                self.reloadTableData(forecastdays: self.mainTableViewModel.mainTableViewModelForecastday, mainCollectionViewData: self.mainCollectionViewMode.mainCollectionViewModel)
+            }
+            
         }
         loadDataFinished()
     }
@@ -137,40 +148,31 @@ extension MainViewController{
                     defaults.set(jsonString, forKey: currentCity.lowercased())
             }
         }
-        
-////        var MainDict =  [String: Any]()
-//        var dict = [String: Any]()
-//        dict["timestamp"] = timestamp
-//        dict["collectionData"] = collectionData
-//        dict["tableViewData"] = tableViewData
-////        MainDict[currentCity] = dict
-//        let defaults = UserDefaults.standard
-//        defaults.set(collectionData!, forKey: currentCity.lowercased())
-////        let data = NSKeyedArchiver.archivedData(withRootObject: dict)
-////        UserDefaults.standard.set(data, forKey: currentCity.lowercased())
-        
-        
-        
     }
     
-    fileprivate func reloadCollectionData(){
-        self.mainContentView.collectionView.list = self.mainCollectionViewMode.mainCollectionViewModelList
+    fileprivate func reloadCollectionData(lists: [List]){
+        
+        self.mainContentView.collectionView.list = lists
         self.mainContentView.collectionView.collectionView.reloadData()
     }
     
-    fileprivate func reloadTableData(){
-       self.mainTableViewModel.mainTableViewModelForecastday.removeFirst()         //remove 当天数据
-        self.mainContentView.tableView.forecastday = self.mainTableViewModel.mainTableViewModelForecastday
+    fileprivate func reloadTableData(forecastdays: [Forecastday], mainCollectionViewData: CollectionModel){
+        var forecastdayTemp = forecastdays
+        if forecastdayTemp.count > 0{
+            forecastdayTemp.removeFirst() //remove 当天数据
+        }
+        self.mainContentView.tableView.forecastday = forecastdayTemp
         self.mainContentView.tableView.tableview.reloadData()
-        self.mainContentView.mainContentViewHeader.headerViewModel = self.mainCollectionViewMode.mainCollectionViewModel
+        
+//        ZJPrint(mainCollectionViewData)
+        
+        self.mainContentView.mainContentViewHeader.headerViewModel = mainCollectionViewData
     }
 }
 
 
 // MARK:- UISetup
 extension MainViewController{
-    
-    
     fileprivate func setupNavigationBarItem(){
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
         imageView.image = UIImage(named: "Carloudy_logo")
@@ -181,13 +183,14 @@ extension MainViewController{
     }
     
     @objc fileprivate func searchBarButtonItemClicked(){
-        let setVC = SearchViewController()
-        let nvc = UINavigationController(rootViewController: setVC)
-        self.present(nvc, animated: true, completion: nil)
+//        let setVC = SearchViewController()
+//        let nvc = UINavigationController(rootViewController: setVC)
+//        self.present(nvc, animated: true, completion: nil)
     }
+    
     @objc fileprivate func settingBarButtonItemClicked(){
-//        navigationController?.pushViewController(SettingViewController(), animated: true)
         let setVC = SettingViewController()
+        setVC.mainViewController = self
         let nvc = UINavigationController(rootViewController: setVC)
         self.present(nvc, animated: true, completion: nil)
     }
@@ -202,13 +205,23 @@ extension MainViewController: CarloudyLocationDelegate{
     
     func carloudyLocation(locationName: String, street: String, city: String, zipCode: String, country: String) {
         let currentCity = city.replacingOccurrences(of: " ", with: "%20")
-        ZJPrint(currentCity)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-        self.loadData(currentCity: currentCity)
+        currentCity_ = currentCity
+        
+        if addedTitles == false{
+            titles = [city]
+            self.view.addSubview(pageTitleView)
+            addedTitles = true
         }
         
+        ZJPrint(currentCity)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        self.loadData(currentCity: currentCity)
+        }
     }
     
+//    func mainContentViewHeader(temperature: String, weather: String) {
+//        
+//    }
 }
 
 

@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Carloudy-Weather.xcodeproj">
+      location = "group:/Users/cai_ios_dev_1/Desktop/Carloudy-Weather/Carloudy-Weather/CarloudyWeather.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

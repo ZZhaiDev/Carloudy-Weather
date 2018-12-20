@@ -36,7 +36,7 @@ extension MainTableViewModel{
                     self.mainTableViewModelForecastday.append(forecastEachDay)
                 }
             } catch let jsonError {
-                print(jsonError)
+                ZJPrint(jsonError)
             }
             
             finishesCallBack()

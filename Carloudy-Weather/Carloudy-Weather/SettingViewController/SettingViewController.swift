@@ -11,9 +11,10 @@ import UIKit
 
 class SettingViewController: UIViewController {
     
+    var mainViewController: MainViewController?
     private lazy var myArray: Array = {
         return [[["icon":"mine_feedBack", "title": "C/F"],
-                 ["icon":"mine_setting", "title": "Setting"]],
+                 ["icon":"mine_setting", "title": "Carloudy Setting"]],
                 
                 [["icon":"mine_feedBack", "title": "帮助中心"],
                  ["icon":"mine_mail", "title": "我要反馈"],
@@ -109,7 +110,12 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource{
        ZJPrint(indexPath.item)
         ZJPrint(indexPath.row)
         if indexPath == [0, 0]{
-            navigationController?.pushViewController(UnitViewController(), animated: true)
+            let unitVC = UnitViewController()
+            unitVC.mainViewController = mainViewController
+            navigationController?.pushViewController(unitVC, animated: true)
+        }else if indexPath == [0, 1]{
+            let csVC = CarloudySettingViewController()
+            navigationController?.pushViewController(csVC, animated: true)
         }
     }
     

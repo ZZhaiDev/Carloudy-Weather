@@ -10,6 +10,9 @@ import UIKit
 
 class UnitViewController: UIViewController {
     
+    var mainViewController: MainViewController?
+    var temperatureBool: Bool?
+    
     let textLabel: UILabel = {
        let tl = UILabel(frame: CGRect(x: 15, y: 100, width: zjScreenWidth - 30, height: 50))
         tl.text = "Temperature Unit:"
@@ -39,6 +42,17 @@ class UnitViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        temperatureBool = temperatureUnitIsCelsius
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if temperatureBool != temperatureUnitIsCelsius && currentCity_ != nil{
+            mainViewController?.loadData(currentCity: currentCity_!)
+        }
     }
 }
 

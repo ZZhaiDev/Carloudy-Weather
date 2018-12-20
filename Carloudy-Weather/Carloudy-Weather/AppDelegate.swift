@@ -13,7 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         ZJPrint(NSHomeDirectory())
@@ -31,7 +30,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         temperatureUnitIsCelsius = defaults.bool(forKey: "temperatureUnitIsCelsius")
         print(temperatureUnitIsCelsius)
     }
-
-
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        ZJPrint(url)        //com.CognitiveAI.CarloudyWeather://9145221111111111
+        if let pairKey = url.absoluteString.components(separatedBy: "://").last{
+            carloudyBlePairKey_ = pairKey
+            
+        }
+        return true
+    }
 }
+
+
+//extension AppDelegate: MainContentViewHeaderDelegate {
+//    func mainContentViewHeader(temperature: String, weather: String) {
+//    }
+//
+//}
 

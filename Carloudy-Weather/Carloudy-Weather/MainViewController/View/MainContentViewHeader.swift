@@ -7,80 +7,62 @@
 //
 
 import UIKit
+//var currentTemp_: Int?
+
+public protocol MainContentViewHeaderDelegate {
+    ///
+    ///
+    /// - Parameters:
+    ///   - temperature: 29°
+    ///   - weather: Clouds
+    ///   - icon: 01. (所有都是day，没有night)
+    func mainContentViewHeader(temperature: String, weather: String, icon: String)
+}
 
 class MainContentViewHeader: UIView {
     var headerViewModel: CollectionModel?{
         didSet{
-            guard let data = headerViewModel else { return }
-            guard let lists = data.list else { return }
-            guard let firstList = lists.first else { return }
-            guard let dt = firstList.dt else { return }  //1545069600
+            guard let data = headerViewModel else { ZJPrint("errror*********errror*********errror*********errror*********"); return }
+            guard let lists = data.list else { ZJPrint("errror*********errror*********errror*********errror*********"); return }
+            guard let firstList = lists.first else { ZJPrint("errror*********errror*********errror*********errror*********"); return }
+            guard let dt = firstList.dt else { ZJPrint("errror*********errror*********errror*********errror*********"); return }  //1545069600
             
             
-            guard let main = firstList.main else { return }
-            guard let temp = main.temp else { return }
+            guard let main = firstList.main else {ZJPrint("errror*********errror*********errror*********errror*********"); return }
+            guard let temp = main.temp else { ZJPrint("errror*********errror*********errror*********errror*********"); return }
             tempLabel.text = getTemperatureStr(Imperial: temp)
-            guard let temp_max = main.temp_max else { return }
-            guard let temp_min = main.temp_min else { return }
-            tempSmallLabel.text = "Min " + getTemperatureStr(Imperial: temp_min) + "° | Max " + getTemperatureStr(Imperial: temp_max) + "°"
+            guard let temp_max = main.temp_max else { ZJPrint("errror*********errror*********errror*********errror*********"); return }
+            guard let temp_min = main.temp_min else { ZJPrint("errror*********errror*********errror*********errror*********");return }
+            tempSmallLabel.text = "Min " + getTemperatureStr(Imperial: temp_min) + " | Max " + getTemperatureStr(Imperial: temp_max)
             
             
             
-            guard let weathers = firstList.weather else { return }
-            guard let firstWeather = weathers.first else { return }
-            guard let description = firstWeather.description else { return }
-            timeLabel.text = Date.dateSince1970(timeStamp: Double(dt), formate: "yyyy-MM-dd") + ": \(description)" 
-            guard let icon = firstWeather.icon else { return }
+            guard let weathers = firstList.weather else { ZJPrint("errror*********errror*********errror*********errror*********"); return }
+            guard let firstWeather = weathers.first else { ZJPrint("errror*********errror*********errror*********errror*********"); return }
+            guard let weatherMain = firstWeather.main else { ZJPrint("errror*********errror*********errror*********errror*********"); return }
+            
+            guard let description = firstWeather.description else { ZJPrint("errror*********errror*********errror*********errror*********"); return }
+            timeLabel.text = Date.dateSince1970(timeStamp: Double(dt), formate: "yyyy-MM-dd") + ": \(description)"
+            
+            guard let icon = firstWeather.icon else { ZJPrint("errror*********errror*********errror*********errror*********"); return }
+            let iconNameForCarloudy = icon.dropLast()
+            ZJPrint(iconNameForCarloudy)
+//            iconNameForCarloudy.dropLast()
+            delegate?.mainContentViewHeader(temperature: tempLabel.text ?? "", weather: weatherMain, icon: String(iconNameForCarloudy))
             imageView.image = UIImage(named: icon)
             
-            guard let city = data.city, let name = city.name, let country = city.country else { return }
+            guard let city = data.city, let name = city.name, let country = city.country else {ZJPrint("errror*********errror*********errror*********errror*********"); return }
             locationLabel.text = name + "," + country
-//
-//            guard let location = data.location else { return }
-//            guard let name = location.name, let region = location.region else {return}
-//            locationLabel.text = name + "," + region
-//            
-//            
-//            guard let current = data.current else { return }
-//            guard let last_updated = current.last_updated else {return}
-//            timeLabel.text = last_updated
-//            
-//            guard let condition = current.condition else { return }
-//            guard let icon = condition.icon else { return }
-//            if let iconName = icon.components(separatedBy: "/").last{
-//                imageView.image = UIImage(named: iconName)
-//            }
-//            
-//            guard let temp_c = current.temp_c else {return}
-//            tempLabel.text = String(Int(temp_c + 0.5)) + "°"
-            
         }
     }
-//    var headerViewModel: Current?{
-//        didSet{
-//            guard let data = headerViewModel else { return }
-//            guard let last_updated = data.last_updated else {return}
-//            timeLabel.text = last_updated
-//
-//            guard let condition = data.condition else { return }
-//            guard let icon = condition.icon else { return }
-//            if let iconName = icon.components(separatedBy: "/").last{
-//                imageView.image = UIImage(named: iconName)
-//            }
-//
-//            guard let temp_c = data.temp_c else {return}
-//            tempLabel.text = String(Int(temp_c + 0.5)) + "°"
-//
-//        }
-//    }
+    
+    open var delegate : MainContentViewHeaderDelegate?
     
     lazy var timeLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 12)
-//        label.text = "Friday, 14 December, 12: 06"
         label.textAlignment = .center
-//        label.backgroundColor = .red
         return label
     }()
     
@@ -88,23 +70,19 @@ class MainContentViewHeader: UIView {
         let label = UILabel()
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 14)
-//        label.text = "Chicago, United States"
         label.textAlignment = .center
         return label
     }()
     
     let imageView: UIImageView = {
        let iv = UIImageView()
-//        iv.image = UIImage(named: "fog_b")
         return iv
     }()
     
     let tempLabel: UILabel = {
        let label = UILabel()
-//        label.text = "45°"
         label.textColor = .white
         label.font = UIFont(name:"PartyLetPlain",size:55)
-//        label.font = UIFont.systemFont(ofSize: 55)
         return label
     }()
     

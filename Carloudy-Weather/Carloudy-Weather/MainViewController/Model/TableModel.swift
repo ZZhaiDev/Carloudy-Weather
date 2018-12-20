@@ -37,7 +37,7 @@ struct Current: Codable {
     var wind_kph: CGFloat?  // 11.2,
     var wind_degree: Int? //270,
     var wind_dir: String?   // "W",
-    var pressure_mb: Int? //1019,
+    var pressure_mb: CGFloat? //1019,
     var pressure_in: CGFloat?   //30.6,
 //    var precip_mm: Int? //0,
 //    var precip_in: Int? //0,
@@ -45,9 +45,9 @@ struct Current: Codable {
     var cloud: Int? //25,
     var feelslike_c: CGFloat? //1.7,
     var feelslike_f: CGFloat? //35.1,
-    var vis_km: Int? //16,
-    var vis_miles: Int? //9,
-    var uv: Int? //2
+    var vis_km: CGFloat? //16,
+    var vis_miles: CGFloat? //9,
+    var uv: CGFloat? //2
 }
 
 struct Condition: Codable {

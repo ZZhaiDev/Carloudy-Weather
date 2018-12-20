@@ -44,6 +44,15 @@ class PageTitleView: UIView {
 }
 
 
+//extension PageTitleView{
+//    public func setTitle(title: String){
+//        titles = [title]
+//        setupUI()
+////        setupBottomLineAndScrollLine()
+//    }
+//}
+
+
 extension PageTitleView{
     fileprivate func setupUI(){
 //    self.backgroundColor = UIColor.red

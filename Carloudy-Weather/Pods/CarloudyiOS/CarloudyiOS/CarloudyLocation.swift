@@ -68,6 +68,11 @@ open class CarloudyLocation: NSObject, CLLocationManagerDelegate{
         let location = CLLocation(latitude: latitude, longitude: longtitude)
         geoCoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, error) -> Void in
             
+            if error != nil{
+                print(error!)
+                return
+            }
+            
             // Place details
             var placeMark: CLPlacemark!
             placeMark = placemarks?[0]

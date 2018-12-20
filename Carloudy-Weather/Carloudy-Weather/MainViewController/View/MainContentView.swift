@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CarloudyiOS
 
 //fileprivate let cellId = "cellId"
 //fileprivate let headerCellId = "headerCellId"
@@ -15,9 +16,10 @@ import UIKit
 
 class MainContentView: UIView {
     fileprivate var titles: [String]
-    
+    let carloudyBLE = CarloudyBLE.shareInstance
     lazy var mainContentViewHeader: MainContentViewHeader = {
         let header = MainContentViewHeader(frame: CGRect(x: 0, y: 0, width: zjScreenWidth, height: 200))
+        header.delegate = self
         return header
     }()
     
@@ -75,47 +77,38 @@ class MainContentView: UIView {
     }
     
 }
-
-//extension MainContentView: UICollectionViewDelegate, UICollectionViewDataSource{
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return 12
-//    }
-//
-////    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//////        let width = (view.frame.width - 4)/3
-////        return CGSize(width: 75, height: 150)
-////    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MainContentViewCell
-////        cell.backgroundColor = UIColor.blue
-//        return cell
-//    }
-//
-////    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-////        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerCellId, for: indexPath) as! MainContentViewCellHeader
-//////        header.backgroundColor = .blue
-////        return header
-////    }
-//
-////    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-////        return CGSize(width: self.frame.width, height: 200)
-////    }
-//
-//
-//}
-//
-//
-////extension MainContentView: UITableViewDelegate, UITableViewDataSource{
-////    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-////        return 4
-////    }
-////
-////    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-////        let cell = tableView.dequeueReusableCell(withIdentifier: tableViewCellId, for: indexPath)
-////        cell.backgroundColor = .red
-////        return cell
-////    }
-////
-////
-////}
+extension MainContentView: MainContentViewHeaderDelegate{
+    func mainContentViewHeader(temperature: String, weather: String, icon: String) {
+        let carloudyBLE = CarloudyBLE.shareInstance
+        if let pairkey = carloudyBlePairKey_{
+            carloudyBLE.newKeySendToPairAndorid_ = pairkey
+        }
+        carloudyBLE.startANewSession(appId: carloudyAppStoreAppKey_)
+        
+//        for _ in 0...1{
+//            ZJPrint("**********")
+////            carloudyBLE.createIDAndViewForCarloudyHud(textViewId: "1", labelTextSize: 32, postionX: 36, postionY: 36, width: 42, height: 00)
+////            carloudyBLE.sendMessage(textViewId: "1", message: temperature + " " + weather)
+//            carloudyBLE.createPictureIDAndImageViewForCarloudyHUD(picID: "01", postionX: 00, postionY: 00, width: 30, height: 30)
+//        }
+        
+        carloudyBLE.createIDAndViewForCarloudyHud(textViewId: "1", labelTextSize: 32, postionX: 36, postionY: 36, width: 42, height: 00)
+        carloudyBLE.sendMessage(textViewId: "1", message: "234")
+//        carloudyBLE.createPictureIDAndImageViewForCarloudyHUD(picID: "01", postionX: 00, postionY: 00, width: 30, height: 30)
+//        carloudyBLE.createPictureIDAndImageViewForCarloudyHUD(picID: "01", postionX: 50, postionY: 30, width: 30, height: 30)
+//        var i = 0
+//        for _ in 0...10{
+//            i += 1
+//            ZJPrint("*******************\(i)")
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//                carloudyBLE.sendMessage(textViewId: "1", message: String(i))
+//            }
+//        }
+        
+        
+        
+    }
+    
+    
+    
+}

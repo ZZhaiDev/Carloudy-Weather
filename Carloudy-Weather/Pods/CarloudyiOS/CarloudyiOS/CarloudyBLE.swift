@@ -216,6 +216,7 @@ open class CarloudyBLE: NSObject {
             if self.dataArray.count > 0{
                 let stringToSend = self.dataArray.first
                 print("-------------dataArray.count: --\(self.dataArray.count)")
+                print(self.dataArray)
                 self.sync(lock: self.dataArray, closure: {
                     self.dataArray.removeFirst()
                 })
