@@ -87,10 +87,10 @@ extension MainViewController{
                     if let timestamp = json.timeStamp, let tableViewModel = json.tableViewData, let collectionModel = json.collectionData {
                         if timestampNow - timestamp < 3600{  //小于1小时不更新
                             if let lists = collectionModel.list{
-                                self.reloadCollectionData(lists: lists)
+                                self.reloadCollectionData(lists: lists, mainCollectionViewData: collectionModel)
                             }
                             if let forecast = tableViewModel.forecast, let forecastday = forecast.forecastday{
-                                self.reloadTableData(forecastdays: forecastday, mainCollectionViewData: collectionModel)
+                                self.reloadTableData(forecastdays: forecastday)
                             }
                             loadDataFinished()
                             return
@@ -118,7 +118,7 @@ extension MainViewController{
                 collectionData = self.mainCollectionViewMode.mainCollectionViewModel
                 self.saveData(collectionData: collectionData, tableViewData: tableViewData, currentCity: currentCity)
                 // 传送数据 并刷新
-                self.reloadCollectionData(lists: self.mainCollectionViewMode.mainCollectionViewModelList)
+                self.reloadCollectionData(lists: self.mainCollectionViewMode.mainCollectionViewModelList, mainCollectionViewData: self.mainCollectionViewMode.mainCollectionViewModel)
             }
             
         }
@@ -126,7 +126,7 @@ extension MainViewController{
             DispatchQueue.main.async {
                 tableViewData = self.mainTableViewModel.mainContentViewHeaderMode_all
                 self.saveData(collectionData: collectionData, tableViewData: tableViewData, currentCity: currentCity)
-                self.reloadTableData(forecastdays: self.mainTableViewModel.mainTableViewModelForecastday, mainCollectionViewData: self.mainCollectionViewMode.mainCollectionViewModel)
+                self.reloadTableData(forecastdays: self.mainTableViewModel.mainTableViewModelForecastday)
             }
             
         }
@@ -150,23 +150,20 @@ extension MainViewController{
         }
     }
     
-    fileprivate func reloadCollectionData(lists: [List]){
+    fileprivate func reloadCollectionData(lists: [List], mainCollectionViewData: CollectionModel){
         
         self.mainContentView.collectionView.list = lists
         self.mainContentView.collectionView.collectionView.reloadData()
+        self.mainContentView.mainContentViewHeader.headerViewModel = mainCollectionViewData
     }
     
-    fileprivate func reloadTableData(forecastdays: [Forecastday], mainCollectionViewData: CollectionModel){
+    fileprivate func reloadTableData(forecastdays: [Forecastday]){
         var forecastdayTemp = forecastdays
         if forecastdayTemp.count > 0{
             forecastdayTemp.removeFirst() //remove 当天数据
         }
         self.mainContentView.tableView.forecastday = forecastdayTemp
         self.mainContentView.tableView.tableview.reloadData()
-        
-//        ZJPrint(mainCollectionViewData)
-        
-        self.mainContentView.mainContentViewHeader.headerViewModel = mainCollectionViewData
     }
 }
 
