@@ -31,7 +31,7 @@ extension MainCollectionViewModel{
                     self.mainCollectionViewModelList.append(l)
                 }
             } catch let jsonError {
-                print(jsonError)
+                ZJPrint(jsonError)
             }
             
             finishesCallBack()

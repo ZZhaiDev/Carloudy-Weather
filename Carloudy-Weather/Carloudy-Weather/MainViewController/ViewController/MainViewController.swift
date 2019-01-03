@@ -11,19 +11,19 @@ import CarloudyiOS
 import CoreLocation
 
 private let zjTitleViewH : CGFloat = 40
+
+// MARK:- 属性
 class MainViewController: BaseViewController {
-    
     var currentCity: String?
+    var titles = [""]
+    var addedTitles = false
+    fileprivate lazy var carloudyLocation = CarloudyLocation(sendSpeed: true, sendAddress: true)
     fileprivate lazy var mainCollectionViewMode = MainCollectionViewModel()
     fileprivate lazy var mainTableViewModel = MainTableViewModel()
-    
-    
-    fileprivate lazy var carloudyLocation = CarloudyLocation(sendSpeed: true, sendAddress: true)
     private lazy var navigationMaxY: CGFloat = (navigationController?.navigationBar.frame.maxY) ?? 88
     private lazy var mainContentViewHeader = MainContentViewHeader()
     
-    
-    lazy var labelView: UILabel = {
+    fileprivate lazy var labelView: UILabel = {
        let label = UILabel()
         label.textColor = .black
         label.font = UIFont(name:"PartyLetPlain",size:25)
@@ -31,9 +31,6 @@ class MainViewController: BaseViewController {
         return label
     }()
     
-    
-    var titles = [""]
-    var addedTitles = false
     fileprivate lazy var pageTitleView: PageTitleView = {
         let titleFrame = CGRect(x: 0, y: navigationMaxY, width: zjScreenWidth, height: zjTitleViewH)
         let titleView = PageTitleView(frame: titleFrame, titles: titles)
@@ -48,19 +45,6 @@ class MainViewController: BaseViewController {
         let mc = MainContentView(frame: titleFrame, titles: titles)
         return mc
     }()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        carloudyLocation.delegate = self
-//        mainContentViewHeader.delegate = self
-        carloudyLocation.locationManager.requestAlwaysAuthorization()
-        carloudyLocation.locationManager.startUpdatingLocation()
-        setupUI()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
     
     override func setupUI() {
         contentView = mainContentView
@@ -73,7 +57,37 @@ class MainViewController: BaseViewController {
 
 
 
-// MARK:- API CALL
+// MARK:- 生命周期
+extension MainViewController{
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        carloudyLocation.delegate = self
+        carloudyLocation.locationManager.requestAlwaysAuthorization()
+        carloudyLocation.locationManager.startUpdatingLocation()
+        setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(opendAppByCarloudy), name: NSNotification.Name(rawValue: launchAppByCarloudyNotificationKey_), object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: launchAppByCarloudyNotificationKey_), object: nil)
+    }
+    
+    // MARK:- 没有关闭app 被carloudy从background mode 打开
+    @objc fileprivate func opendAppByCarloudy(){
+        if let currentCity = currentCity_{
+            self.loadData(currentCity: currentCity)
+        }
+    }
+}
+
+
+
+// MARK:- API CALL and Reload data
 extension MainViewController{
     func loadData(currentCity: String){
         let timestampNow = NSDate().timeIntervalSince1970
@@ -194,7 +208,7 @@ extension MainViewController{
 }
 
 
-
+// MARK:- Carloudy Delegate
 extension MainViewController: CarloudyLocationDelegate{
     func carloudyLocation(speed: CLLocationSpeed) {
         
@@ -215,10 +229,6 @@ extension MainViewController: CarloudyLocationDelegate{
         self.loadData(currentCity: currentCity)
         }
     }
-    
-//    func mainContentViewHeader(temperature: String, weather: String) {
-//        
-//    }
 }
 
 

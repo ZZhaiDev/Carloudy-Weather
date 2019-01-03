@@ -84,28 +84,9 @@ extension MainContentView: MainContentViewHeaderDelegate{
             carloudyBLE.newKeySendToPairAndorid_ = pairkey
         }
         carloudyBLE.startANewSession(appId: carloudyAppStoreAppKey_)
-        
-//        for _ in 0...1{
-//            ZJPrint("**********")
-////            carloudyBLE.createIDAndViewForCarloudyHud(textViewId: "1", labelTextSize: 32, postionX: 36, postionY: 36, width: 42, height: 00)
-////            carloudyBLE.sendMessage(textViewId: "1", message: temperature + " " + weather)
-//            carloudyBLE.createPictureIDAndImageViewForCarloudyHUD(picID: "01", postionX: 00, postionY: 00, width: 30, height: 30)
-//        }
-        
-        carloudyBLE.createIDAndViewForCarloudyHud(textViewId: "1", labelTextSize: 32, postionX: 36, postionY: 36, width: 42, height: 00)
-        carloudyBLE.sendMessage(textViewId: "1", message: "234")
-//        carloudyBLE.createPictureIDAndImageViewForCarloudyHUD(picID: "01", postionX: 00, postionY: 00, width: 30, height: 30)
-//        carloudyBLE.createPictureIDAndImageViewForCarloudyHUD(picID: "01", postionX: 50, postionY: 30, width: 30, height: 30)
-//        var i = 0
-//        for _ in 0...10{
-//            i += 1
-//            ZJPrint("*******************\(i)")
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//                carloudyBLE.sendMessage(textViewId: "1", message: String(i))
-//            }
-//        }
-        
-        
+        carloudyBLE.createIDAndViewForCarloudyHud(textViewId: "1", labelTextSize: 99, postionX: 44, postionY: 30, width: 42, height: 00)
+        carloudyBLE.sendMessage(textViewId: "1", message: temperature)
+        carloudyBLE.createPictureIDAndImageViewForCarloudyHUD(picID: "ad", postionX: 20, postionY: 20, width: 50, height: 50)
         
     }
     

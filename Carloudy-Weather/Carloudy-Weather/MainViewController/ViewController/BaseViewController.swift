@@ -25,6 +25,11 @@ class BaseViewController: UIViewController {
         }()
     
     // MARK: 系统回调
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
