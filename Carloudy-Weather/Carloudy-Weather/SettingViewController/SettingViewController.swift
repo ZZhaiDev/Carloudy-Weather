@@ -40,37 +40,17 @@ class SettingViewController: UIViewController {
         setupUI()
         view.backgroundColor = .white
     }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        self.navigationController?.hidesBarsOnSwipe = true;
-//    }
-//
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        self.navigationController?.hidesBarsOnSwipe = false;
-//    }
 }
 
 
 
 extension SettingViewController{
     
-    
-    
     fileprivate func setupUI(){
         
         view.addSubview(tableView)
         navigationItem.title = "Setting"
-//        var navigationBarY: CGFloat = 88
-//        if #available(iOS 11.0, *) {
-//            navigationBarY = self.view.safeAreaInsets.top
-//        } else {
-//            navigationBarY = self.topLayoutGuide.length
-//        }
-//        var navigationBarY: CGFloat = 30
         let navigationBarY = navigationController?.navigationBar.frame.maxY ?? 88
-//        let navigationBarY: CGFloat = 88
         tableView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: navigationBarY, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
         tableView.parallaxHeader.view = head
         tableView.parallaxHeader.height = 200
@@ -118,33 +98,6 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource{
             navigationController?.pushViewController(csVC, animated: true)
         }
     }
-    
-    
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        let scrollOffset = scrollView.contentOffset.y;
-////        ZJPrint(scrollOffset)
-//        if (scrollOffset < -244)
-//        {
-//            self.navigationController?.hidesBarsOnSwipe = false;
-//            self.navigationController?.setNavigationBarHidden(false, animated: true)
-//        }
-//        else
-//        {
-//            self.navigationController?.hidesBarsOnSwipe = true;
-//
-//        }
-//    }
-//
-//
-//    //always called after the user lifts their finger
-//    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-//        self.navigationController?.hidesBarsOnSwipe = false;
-//        self.navigationController?.setNavigationBarHidden(false, animated: true)
-//    }
-//
-//    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-//
-//    }
     
     
     

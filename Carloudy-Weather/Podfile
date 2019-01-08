@@ -7,11 +7,6 @@ target 'Carloudy-Weather' do
 pod 'Alamofire', '~> 5.0.0.beta.1'
 pod 'CarloudyiOS', '1.06'
 
-  # Pods for Carloudy-Weather
 
-  target 'Carloudy-WeatherTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
 
 end
