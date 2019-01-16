@@ -8,6 +8,22 @@
 
 import UIKit
 
+//Commons
+let zjScreenWidth: CGFloat = UIScreen.main.bounds.width
+let zjScreenHeight: CGFloat = UIScreen.main.bounds.height
+let zjSeachFirstViewCellHeight: CGFloat = 160
+
+
+// 判断是否为 iPhone X
+let isIphoneX = zjScreenHeight >= 812 ? true : false
+// 状态栏高度
+let zjStatusHeight : CGFloat = isIphoneX ? 44 : 20
+// 导航栏高度
+let zjNavigationBarHeight :CGFloat = 44
+// TabBar高度
+let zjTabBarHeight : CGFloat = isIphoneX ? 49 + 34 : 49
+
+
 var currentCity_: String?
 var carloudyBlePairKey_: String?
 var carloudyAppStoreAppKey_: String = "86kbwkvk"

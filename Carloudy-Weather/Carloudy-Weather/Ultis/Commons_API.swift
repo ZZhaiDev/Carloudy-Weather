@@ -29,10 +29,7 @@ let openWeatherAPI = "76d9dff8a633f10f3c5944948d84bd8b"
 //api key: eed98b017a724a859a614908181712
 let apiUX = "eed98b017a724a859a614908181712"
 
-//Commons
-let zjScreenWidth: CGFloat = UIScreen.main.bounds.width
-let zjScreenHeight: CGFloat = UIScreen.main.bounds.height
-let zjSeachFirstViewCellHeight: CGFloat = 160
+
 
 
 
