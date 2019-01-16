@@ -1,7 +1,7 @@
 # Carloudy-Weather
 
 ##Demo:
-![](https://github.com/zijiazhai/Carloudy-News/blob/master/githubImages/weather-dem0.gif)
+![](https://github.com/zijiazhai/Carloudy-Weather/blob/master/github-gif/weather-demo.gif)
 
 ## Catch Weather Data:
 #### Codable Struct
