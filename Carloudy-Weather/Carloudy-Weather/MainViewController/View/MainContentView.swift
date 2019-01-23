@@ -84,9 +84,16 @@ extension MainContentView: MainContentViewHeaderDelegate{
             carloudyBLE.newKeySendToPairAndorid_ = pairkey
         }
         carloudyBLE.startANewSession(appId: carloudyAppStoreAppKey_)
-        carloudyBLE.createIDAndViewForCarloudyHud(textViewId: "1", labelTextSize: 99, postionX: 44, postionY: 30, width: 42, height: 00)
-        carloudyBLE.sendMessage(textViewId: "1", message: temperature)
-        carloudyBLE.createPictureIDAndImageViewForCarloudyHUD(picID: "ad", postionX: 20, postionY: 20, width: 50, height: 50)
+        carloudyBLE.createIDAndViewForCarloudyHud(textViewId: "1", labelTextSize: 30, postionX: 20, postionY: 10, width: 00, height: 00)
+        carloudyBLE.createIDAndViewForCarloudyHud(textViewId: "2", labelTextSize: 30, postionX: 20, postionY: 30, width: 00, height: 00)
+        carloudyBLE.createIDAndViewForCarloudyHud(textViewId: "3", labelTextSize: 30, postionX: 20, postionY: 50, width: 00, height: 00)
+        let degree = temperature.dropLast() + "  degree"
+        carloudyBLE.sendMessage(textViewId: "1", message: String(degree) )
+        carloudyBLE.sendMessage(textViewId: "2", message: "Weather: \(weather)" )
+        carloudyBLE.sendMessage(textViewId: "3", message: "City: \(currentCity_!)" )
+//        carloudyBLE.sendMessage(textViewId: "1", message: temperature + weather + (currentCity_ ?? ""))
+//        carloudyBLE.sendMessage(textViewId: "1", message: weather + currentCity_! + degree )
+//        carloudyBLE.createPictureIDAndImageViewForCarloudyHUD(picID: "ad", postionX: 20, postionY: 20, width: 50, height: 50)
         
     }
     
